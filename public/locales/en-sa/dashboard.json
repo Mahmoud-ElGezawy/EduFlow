@@ -1,0 +1,15 @@
+{
+  "title": "Dashboard",
+  "overview": "Overview",
+  "totalStudents": "Total Students",
+  "totalCourses": "Total Courses",
+  "revenue": "Revenue",
+  "assignmentsPending": "Assignments Pending",
+  "courses": "Courses",
+  "students": "Students",
+  "assignments": "Assignments",
+  "payments": "Payments",
+  "settings": "Settings",
+  "newCourse": "New Course",
+  "addLesson": "Add Lesson"
+}

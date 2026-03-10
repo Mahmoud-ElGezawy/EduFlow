@@ -1,0 +1,70 @@
+{
+  "hero": {
+    "badge": "LMS Platform",
+    "title": "Build Your Academy. Reach the World.",
+    "subtitle": "The complete platform for educators. Create courses, engage students, and grow your impact—all in one place.",
+    "cta": "Create Your Academy",
+    "viewDemo": "View Demo"
+  },
+  "benefits": {
+    "title": "Everything You Need",
+    "subtitle": "Powerful tools designed for educators who want to make a difference",
+    "easyCreation": {
+      "title": "Easy Course Creation",
+      "description": "Create stunning courses with videos, quizzes, and assignments in minutes. No technical skills required."
+    },
+    "studentManagement": {
+      "title": "Student Management",
+      "description": "Track progress, engagement, and performance across all your courses with intuitive dashboards."
+    },
+    "revenueTracking": {
+      "title": "Revenue Tracking",
+      "description": "Monitor earnings, manage payments, and grow your business with transparent analytics."
+    }
+  },
+  "teachers": {
+    "title": "Join Leading Educators",
+    "subtitle": "See how teachers are transforming education with our platform",
+    "students": "students",
+    "visitAcademy": "Visit Academy"
+  },
+  "pricing": {
+    "title": "Simple, Transparent Pricing",
+    "subtitle": "Choose the plan that fits your academy. No hidden fees.",
+    "plans": {
+      "starter": {
+        "name": "Starter",
+        "price": "300 EGP/month",
+        "features": ["3 courses", "200 students", "Basic analytics"],
+        "cta": "Get Started"
+      },
+      "popular": "Most Popular",
+      "pro": {
+        "name": "Pro",
+        "price": "700 EGP/month",
+        "features": ["Unlimited courses", "Unlimited students", "Advanced analytics"],
+        "cta": "Get Started"
+      },
+      "academy": {
+        "name": "Academy",
+        "price": "1,200 EGP/month",
+        "features": ["Unlimited everything", "Custom domain", "Dedicated support"],
+        "cta": "Contact Sales"
+      }
+    }
+  },
+  "testimonials": {
+    "title": "Loved by Educators",
+    "subtitle": "Join thousands of teachers already growing with us",
+    "quotes": {
+      "1": { "text": "This platform transformed how I teach. My students love the interactive lessons!", "author": "Ahmed M." },
+      "2": { "text": "Easy to use and my revenue has doubled in 6 months. Absolutely worth it.", "author": "Sara K." },
+      "3": { "text": "Best LMS for Arabic content. RTL support is flawless and the experience is seamless.", "author": "Omar H." }
+    }
+  },
+  "cta": {
+    "title": "Ready to Start Your Academy?",
+    "subtitle": "Join thousands of teachers already using our platform. Start free today.",
+    "button": "Create Your Academy"
+  }
+}

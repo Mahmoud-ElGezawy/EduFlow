@@ -1,0 +1,12 @@
+{
+  "nav": {
+    "home": "Home",
+    "pricing": "Pricing",
+    "overview": "Dashboard",
+    "subscribe": "Subscribe",
+    "createAcademy": "Create Your Academy",
+    "dashboard": "Dashboard"
+  },
+  "loading": "Loading...",
+  "comingSoon": "Coming soon"
+}

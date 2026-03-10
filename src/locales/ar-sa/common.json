@@ -1,0 +1,17 @@
+{
+  "footer": {
+    "copyright": "© {{year}} EduFlow. جميع الحقوق محفوظة.",
+    "subscribe": "اشترك الآن",
+    "dashboard": "لوحة التحكم"
+  },
+  "nav": {
+    "home": "الرئيسية",
+    "pricing": "الأسعار",
+    "overview": "لوحة التحكم",
+    "subscribe": "اشترك الآن",
+    "createAcademy": "أنشئ أكاديميتك",
+    "dashboard": "لوحة التحكم"
+  },
+  "loading": "جاري التحميل...",
+  "comingSoon": "قريباً"
+}

@@ -1,0 +1,15 @@
+{
+  "title": "لوحة التحكم",
+  "overview": "نظرة عامة",
+  "totalStudents": "إجمالي الطلاب",
+  "totalCourses": "إجمالي الدورات",
+  "revenue": "الإيرادات",
+  "assignmentsPending": "الواجبات المعلقة",
+  "courses": "الدورات",
+  "students": "الطلاب",
+  "assignments": "الواجبات",
+  "payments": "المدفوعات",
+  "settings": "الإعدادات",
+  "newCourse": "دورة جديدة",
+  "addLesson": "إضافة درس"
+}

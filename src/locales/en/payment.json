@@ -1,0 +1,16 @@
+{
+  "chooseMethod": "Choose payment method",
+  "phoneNumber": "Phone number",
+  "instapayDesc": "Pay via Instapay app - Egypt",
+  "vodafoneDesc": "Pay via Vodafone Cash",
+  "fawryDesc": "Pay via Fawry at any branch or agent",
+  "fawryCode": "Fawry code",
+  "payNow": "Pay now",
+  "register": "Register",
+  "subscribe": "Subscribe now",
+  "fullName": "Full name",
+  "email": "Email",
+  "password": "Password",
+  "confirmPassword": "Confirm password",
+  "selectPlan": "Select plan"
+}

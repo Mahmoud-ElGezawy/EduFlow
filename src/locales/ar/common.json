@@ -1,0 +1,24 @@
+{
+  "subscribe": {
+    "title": "أنشئ أكاديميتك",
+    "subtitle": "اختر خطة وابدأ التدريس عبر الإنترنت اليوم."
+  },
+  "footer": {
+    "copyright": "© {{year}} EduFlow. جميع الحقوق محفوظة.",
+    "subscribe": "اشترك الآن",
+    "dashboard": "لوحة المعلم",
+    "myCourses": "دوراتي"
+  },
+  "nav": {
+    "home": "الرئيسية",
+    "pricing": "الأسعار",
+    "overview": "لوحة التحكم",
+    "subscribe": "اشترك الآن",
+    "createAcademy": "أنشئ أكاديميتك",
+    "dashboard": "لوحة التحكم",
+    "teacherDashboard": "لوحة المعلم",
+    "studentDashboard": "دوراتي"
+  },
+  "loading": "جاري التحميل...",
+  "comingSoon": "قريباً"
+}

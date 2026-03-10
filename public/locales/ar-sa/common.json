@@ -1,0 +1,12 @@
+{
+  "nav": {
+    "home": "الرئيسية",
+    "pricing": "الأسعار",
+    "overview": "لوحة التحكم",
+    "subscribe": "اشترك الآن",
+    "createAcademy": "أنشئ أكاديميتك",
+    "dashboard": "لوحة التحكم"
+  },
+  "loading": "جاري التحميل...",
+  "comingSoon": "قريباً"
+}
