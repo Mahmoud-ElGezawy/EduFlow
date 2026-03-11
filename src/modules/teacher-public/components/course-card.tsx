@@ -8,9 +8,11 @@ interface CourseCardProps {
   thumbnail?: string
   price: number
   studentCount: number
+  /** Optional short description for profile/storefront */
+  description?: string
 }
 
-export function CourseCard({ slug, title, thumbnail, price, studentCount }: CourseCardProps) {
+export function CourseCard({ slug, title, thumbnail, price, studentCount, description }: CourseCardProps) {
   const { t } = useTranslation()
 
   return (
@@ -47,6 +49,11 @@ export function CourseCard({ slug, title, thumbnail, price, studentCount }: Cour
         <Typography variant="h6" gutterBottom noWrap sx={{ fontWeight: 600 }}>
           {title}
         </Typography>
+        {description && (
+          <Typography color="text.secondary" variant="body2" sx={{ mb: 1 }} lineHeight={1.5}>
+            {description}
+          </Typography>
+        )}
         <Typography color="text.secondary" variant="body2">
           {studentCount.toLocaleString()} {t('teachers.students', { ns: 'home' })}
         </Typography>

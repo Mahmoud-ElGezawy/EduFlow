@@ -1,4 +1,4 @@
-import { Box, Drawer, IconButton, List, ListItem, ListItemButton, ListItemIcon, ListItemText, Toolbar } from '@mui/material'
+import { Box, Drawer, Divider, IconButton, List, ListItem, ListItemButton, ListItemIcon, ListItemText, Toolbar } from '@mui/material'
 import {
   Close as CloseIcon,
   Dashboard as DashboardIcon,
@@ -8,7 +8,9 @@ import {
   EventAvailable as BookingIcon,
   Payment as PaymentsIcon,
   Settings as SettingsIcon,
+  Public as PublicIcon,
 } from '@mui/icons-material'
+import { Fragment } from 'react'
 import { useLocation } from '@tanstack/react-router'
 import { useTranslation } from 'react-i18next'
 import { I18nLink, getPathWithoutLang, isPathActive } from '@/i18n/navigation'
@@ -24,6 +26,7 @@ const items = [
   { to: '/dashboard/assignments', icon: AssignmentsIcon, labelKey: 'assignments' },
   { to: '/dashboard/payments', icon: PaymentsIcon, labelKey: 'payments' },
   { to: '/dashboard/settings', icon: SettingsIcon, labelKey: 'settings' },
+  { to: '/teacher/profile', icon: PublicIcon, labelKey: 'viewMyPlatform', external: true },
 ]
 
 const sidebarContent = (
@@ -32,12 +35,17 @@ const sidebarContent = (
 ) => (
   <List sx={{ py: 2, px: 1 }}>
     {items.map((item) => {
-      const selected = isPathActive(pathWithoutLang ?? '', item.to, item.exact)
+      const isExternal = 'external' in item && item.external
+      const selected = !isExternal && isPathActive(pathWithoutLang ?? '', item.to, item.exact)
+      const linkProps = isExternal ? { target: '_blank' as const, rel: 'noopener noreferrer' } : {}
       return (
-      <ListItem key={item.to} disablePadding sx={{ mb: 0.5 }}>
+      <Fragment key={item.to}>
+        {isExternal && <Divider sx={{ my: 1, mx: 1 }} />}
+        <ListItem disablePadding sx={{ mb: 0.5 }}>
         <ListItemButton
           component={I18nLink}
           to={item.to}
+          {...linkProps}
           selected={selected}
           sx={{
             borderRadius: 2,
@@ -68,6 +76,7 @@ const sidebarContent = (
           <ListItemText primary={t(item.labelKey, { ns: 'dashboard' })} primaryTypographyProps={{ fontWeight: 500 }} />
         </ListItemButton>
       </ListItem>
+      </Fragment>
       )
     })}
   </List>

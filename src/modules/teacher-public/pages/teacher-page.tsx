@@ -57,7 +57,7 @@ export function TeacherPage() {
         <Grid item xs={12} md={8}>
           <TeacherAbout about={teacherData.bio} />
           {coursesData.length > 0 && (
-            <TeacherCourses courses={coursesData} teacherSlug={slug} />
+            <TeacherCourses courses={coursesData} />
           )}
           <TeacherReviews reviews={mockReviews} />
           <Box sx={{ py: 4 }}>

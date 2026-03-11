@@ -1,22 +1,29 @@
-import { Box, Typography, Card, CardContent } from '@mui/material'
+import { Box, Typography, Card, CardContent, Rating } from '@mui/material'
 import { useTranslation } from 'react-i18next'
 
-interface Review {
+export interface TeacherReviewItem {
   id: string
-  author: string
+  studentName?: string
+  author?: string
   rating: number
-  comment: string
+  reviewText?: string
+  comment?: string
   date: string
 }
 
 interface TeacherReviewsProps {
-  reviews: Review[]
+  reviews: TeacherReviewItem[]
+}
+
+function formatDate(dateStr: string): string {
+  const d = new Date(dateStr)
+  return d.toLocaleDateString(undefined, { month: 'short', day: 'numeric', year: 'numeric' })
 }
 
 export function TeacherReviews({ reviews }: TeacherReviewsProps) {
   const { t } = useTranslation()
   return (
-    <Box sx={{ py: 4 }}>
+    <Box sx={{ py: 4 }} component="section">
       <Typography variant="h6" gutterBottom sx={{ fontWeight: 600 }}>
         {t('reviews', { ns: 'teacher' })}
       </Typography>
@@ -27,9 +34,17 @@ export function TeacherReviews({ reviews }: TeacherReviewsProps) {
           {reviews.map((review) => (
             <Card key={review.id}>
               <CardContent>
-                <Typography variant="subtitle2">{review.author}</Typography>
-                <Typography variant="body2" color="text.secondary">
-                  {review.comment}
+                <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, mb: 1 }}>
+                  <Typography variant="subtitle2" fontWeight={600}>
+                    {review.studentName ?? review.author}
+                  </Typography>
+                  <Rating value={review.rating} readOnly size="small" precision={0.5} />
+                </Box>
+                <Typography variant="body2" color="text.secondary" paragraph>
+                  {review.reviewText ?? review.comment}
+                </Typography>
+                <Typography variant="caption" color="text.secondary">
+                  {formatDate(review.date)}
                 </Typography>
               </CardContent>
             </Card>

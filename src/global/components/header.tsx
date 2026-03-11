@@ -23,6 +23,7 @@ const navItems = [
   { to: '/subscribe', labelKey: 'nav.subscribe' },
   { to: '/register', labelKey: 'register', ns: 'payment' },
   { to: '/dashboard', labelKey: 'nav.teacherDashboard' },
+  { to: '/teacher/profile', labelKey: 'nav.teacherProfile' },
   { to: '/student', labelKey: 'nav.studentDashboard', variant: 'contained' as const },
 ]
 
@@ -53,7 +54,7 @@ export function Header() {
 
   const isNavItemActive = (to: string) => {
     if (to === '/#pricing') return pathWithoutLang === '/' && pathname.includes('#pricing')
-    return isPathActive(pathWithoutLang, to.split('#')[0], to === '/' || to === '/dashboard' || to === '/student')
+    return isPathActive(pathWithoutLang, to.split('#')[0], to === '/' || to === '/dashboard' || to === '/student' || to === '/teacher/profile')
   }
 
   const navContent = (

@@ -11,5 +11,14 @@
   "bookSessionDescription": "جدول جلسة فردية أو جماعية مع هذا المعلم.",
   "viewAvailability": "عرض الأوقات المتاحة",
   "bookingComingSoon": "سيتم تفعيل حجز الجلسات قريباً. اشترك في الأكاديمية لتلقي الإشعارات.",
-  "backToProfile": "العودة للملف الشخصي"
+  "backToProfile": "العودة للملف الشخصي",
+  "upcomingSessions": "الجلسات القادمة",
+  "noSessions": "لا توجد جلسات قادمة.",
+  "minutes": "دقيقة",
+  "seatsAvailable": "مقاعد متاحة",
+  "studyGroups": "مجموعات الدراسة",
+  "noGroups": "لا توجد مجموعات دراسة بعد.",
+  "members": "أعضاء",
+  "announcements": "الإعلانات",
+  "noAnnouncements": "لا توجد إعلانات بعد."
 }

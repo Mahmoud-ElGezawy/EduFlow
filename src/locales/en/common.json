@@ -17,6 +17,7 @@
     "createAcademy": "Create Your Academy",
     "dashboard": "Dashboard",
     "teacherDashboard": "Teacher Dashboard",
+    "teacherProfile": "Teacher Profile",
     "studentDashboard": "My Courses"
   },
   "loading": "Loading...",

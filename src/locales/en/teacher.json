@@ -11,5 +11,14 @@
   "bookSessionDescription": "Schedule a one-on-one or group session with this teacher.",
   "viewAvailability": "View Availability",
   "bookingComingSoon": "Session booking will be available soon. Subscribe to the academy to get notified.",
-  "backToProfile": "Back to profile"
+  "backToProfile": "Back to profile",
+  "upcomingSessions": "Upcoming Sessions",
+  "noSessions": "No upcoming sessions.",
+  "minutes": "min",
+  "seatsAvailable": "seats available",
+  "studyGroups": "Study Groups",
+  "noGroups": "No study groups yet.",
+  "members": "members",
+  "announcements": "Announcements",
+  "noAnnouncements": "No announcements yet."
 }

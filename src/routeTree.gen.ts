@@ -19,6 +19,7 @@ import { Route as LangDashboardRouteRouteImport } from './routes/$lang/dashboard
 import { Route as LangSubscribeIndexRouteImport } from './routes/$lang/subscribe/index'
 import { Route as LangStudentIndexRouteImport } from './routes/$lang/student/index'
 import { Route as LangDashboardIndexRouteImport } from './routes/$lang/dashboard/index'
+import { Route as LangTeacherProfileRouteImport } from './routes/$lang/teacher/profile'
 import { Route as LangTeacherTeacherSlugRouteImport } from './routes/$lang/teacher/$teacherSlug'
 import { Route as LangSubscribeCheckoutRouteImport } from './routes/$lang/subscribe/checkout'
 import { Route as LangCourseCourseSlugRouteImport } from './routes/$lang/course/$courseSlug'
@@ -100,6 +101,11 @@ const LangDashboardIndexRoute = LangDashboardIndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => LangDashboardRouteRoute,
+} as any)
+const LangTeacherProfileRoute = LangTeacherProfileRouteImport.update({
+  id: '/teacher/profile',
+  path: '/teacher/profile',
+  getParentRoute: () => LangRouteRoute,
 } as any)
 const LangTeacherTeacherSlugRoute = LangTeacherTeacherSlugRouteImport.update({
   id: '/teacher/$teacherSlug',
@@ -298,6 +304,7 @@ export interface FileRoutesByFullPath {
   '/$lang/course/$courseSlug': typeof LangCourseCourseSlugRoute
   '/$lang/subscribe/checkout': typeof LangSubscribeCheckoutRoute
   '/$lang/teacher/$teacherSlug': typeof LangTeacherTeacherSlugRouteWithChildren
+  '/$lang/teacher/profile': typeof LangTeacherProfileRoute
   '/$lang/dashboard/': typeof LangDashboardIndexRoute
   '/$lang/student/': typeof LangStudentIndexRoute
   '/$lang/subscribe/': typeof LangSubscribeIndexRoute
@@ -333,6 +340,7 @@ export interface FileRoutesByTo {
   '/$lang/course/$courseSlug': typeof LangCourseCourseSlugRoute
   '/$lang/subscribe/checkout': typeof LangSubscribeCheckoutRoute
   '/$lang/teacher/$teacherSlug': typeof LangTeacherTeacherSlugRouteWithChildren
+  '/$lang/teacher/profile': typeof LangTeacherProfileRoute
   '/$lang/dashboard': typeof LangDashboardIndexRoute
   '/$lang/student': typeof LangStudentIndexRoute
   '/$lang/subscribe': typeof LangSubscribeIndexRoute
@@ -377,6 +385,7 @@ export interface FileRoutesById {
   '/$lang/course/$courseSlug': typeof LangCourseCourseSlugRoute
   '/$lang/subscribe/checkout': typeof LangSubscribeCheckoutRoute
   '/$lang/teacher/$teacherSlug': typeof LangTeacherTeacherSlugRouteWithChildren
+  '/$lang/teacher/profile': typeof LangTeacherProfileRoute
   '/$lang/dashboard/': typeof LangDashboardIndexRoute
   '/$lang/student/': typeof LangStudentIndexRoute
   '/$lang/subscribe/': typeof LangSubscribeIndexRoute
@@ -422,6 +431,7 @@ export interface FileRouteTypes {
     | '/$lang/course/$courseSlug'
     | '/$lang/subscribe/checkout'
     | '/$lang/teacher/$teacherSlug'
+    | '/$lang/teacher/profile'
     | '/$lang/dashboard/'
     | '/$lang/student/'
     | '/$lang/subscribe/'
@@ -457,6 +467,7 @@ export interface FileRouteTypes {
     | '/$lang/course/$courseSlug'
     | '/$lang/subscribe/checkout'
     | '/$lang/teacher/$teacherSlug'
+    | '/$lang/teacher/profile'
     | '/$lang/dashboard'
     | '/$lang/student'
     | '/$lang/subscribe'
@@ -500,6 +511,7 @@ export interface FileRouteTypes {
     | '/$lang/course/$courseSlug'
     | '/$lang/subscribe/checkout'
     | '/$lang/teacher/$teacherSlug'
+    | '/$lang/teacher/profile'
     | '/$lang/dashboard/'
     | '/$lang/student/'
     | '/$lang/subscribe/'
@@ -605,6 +617,13 @@ declare module '@tanstack/react-router' {
       fullPath: '/$lang/dashboard/'
       preLoaderRoute: typeof LangDashboardIndexRouteImport
       parentRoute: typeof LangDashboardRouteRoute
+    }
+    '/$lang/teacher/profile': {
+      id: '/$lang/teacher/profile'
+      path: '/teacher/profile'
+      fullPath: '/$lang/teacher/profile'
+      preLoaderRoute: typeof LangTeacherProfileRouteImport
+      parentRoute: typeof LangRouteRoute
     }
     '/$lang/teacher/$teacherSlug': {
       id: '/$lang/teacher/$teacherSlug'
@@ -994,6 +1013,7 @@ interface LangRouteRouteChildren {
   LangIndexRoute: typeof LangIndexRoute
   LangCourseCourseSlugRoute: typeof LangCourseCourseSlugRoute
   LangTeacherTeacherSlugRoute: typeof LangTeacherTeacherSlugRouteWithChildren
+  LangTeacherProfileRoute: typeof LangTeacherProfileRoute
 }
 
 const LangRouteRouteChildren: LangRouteRouteChildren = {
@@ -1004,6 +1024,7 @@ const LangRouteRouteChildren: LangRouteRouteChildren = {
   LangIndexRoute: LangIndexRoute,
   LangCourseCourseSlugRoute: LangCourseCourseSlugRoute,
   LangTeacherTeacherSlugRoute: LangTeacherTeacherSlugRouteWithChildren,
+  LangTeacherProfileRoute: LangTeacherProfileRoute,
 }
 
 const LangRouteRouteWithChildren = LangRouteRoute._addFileChildren(

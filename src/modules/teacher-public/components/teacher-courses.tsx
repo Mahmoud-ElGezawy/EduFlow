@@ -1,17 +1,27 @@
 import { Box, Typography, Grid } from '@mui/material'
 import { useTranslation } from 'react-i18next'
 import { CourseCard } from './course-card'
-import type { TeacherCourse } from '@/api/resources/teachers.resource'
 
-interface TeacherCoursesProps {
-  courses: TeacherCourse[]
-  teacherSlug: string
+export interface TeacherCourseItem {
+  id: string
+  slug: string
+  title: string
+  thumbnail?: string
+  price: number
+  studentCount: number
+  description?: string
 }
 
-export function TeacherCourses({ courses }: TeacherCoursesProps) {
+interface TeacherCoursesProps {
+  courses: TeacherCourseItem[]
+  /** Optional id for anchor link (e.g. "courses") */
+  id?: string
+}
+
+export function TeacherCourses({ courses, id: sectionId }: TeacherCoursesProps) {
   const { t } = useTranslation()
   return (
-    <Box sx={{ py: 4 }}>
+    <Box id={sectionId} sx={{ py: 4 }} component="section">
       <Typography variant="h6" gutterBottom sx={{ fontWeight: 600 }}>
         {t('courses', { ns: 'teacher' })}
       </Typography>
@@ -24,6 +34,7 @@ export function TeacherCourses({ courses }: TeacherCoursesProps) {
               thumbnail={course.thumbnail}
               price={course.price}
               studentCount={course.studentCount}
+              description={course.description}
             />
           </Grid>
         ))}
