@@ -115,7 +115,7 @@ function LessonViewerPage() {
       <Button
         component={I18nLink}
         to={`/student/courses/${courseId}`}
-        startIcon={<BackIcon />}
+        startIcon={<BackIcon className="rtl-flip" />}
         sx={{ mb: 2 }}
       >
         {t('backToCourse')}

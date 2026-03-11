@@ -1,6 +1,7 @@
 import { Box, Typography } from '@mui/material'
 import { DataGrid, GridColDef } from '@mui/x-data-grid'
 import { useState } from 'react'
+import { useCurrentLang } from '@/i18n/navigation'
 
 export interface PageWithTableProps<T = Record<string, unknown>> {
   title: string
@@ -12,6 +13,8 @@ export interface PageWithTableProps<T = Record<string, unknown>> {
 
 export function PageWithTable<T = Record<string, unknown>>({ title, rows, columns, getRowId, toolbar }: PageWithTableProps<T>) {
   const [paginationModel, setPaginationModel] = useState({ page: 0, pageSize: 10 })
+  const lang = useCurrentLang()
+  const isRtl = lang === 'ar'
 
   return (
     <Box>
@@ -31,7 +34,17 @@ export function PageWithTable<T = Record<string, unknown>>({ title, rows, column
           pageSizeOptions={[5, 10, 25, 50]}
           disableRowSelectionOnClick
           autoHeight
-          sx={{ minWidth: 400 }}
+          sx={{
+            minWidth: 400,
+            /* RTL: flip pagination arrows */
+            ...(isRtl && {
+              '& .MuiTablePagination-actions .MuiSvgIcon-root': { transform: 'scaleX(-1)' },
+              /* RTL: force header align right for columns that have headerAlign right */
+              '& .MuiDataGrid-columnHeader[data-field="name"] .MuiDataGrid-columnHeaderTitleContainer': { justifyContent: 'flex-end' },
+              '& .MuiDataGrid-columnHeader[data-field="studentName"] .MuiDataGrid-columnHeaderTitleContainer': { justifyContent: 'flex-end' },
+              '& .MuiDataGrid-columnHeader[data-field="title"] .MuiDataGrid-columnHeaderTitleContainer': { justifyContent: 'flex-end' },
+            }),
+          }}
         />
       </Box>
     </Box>

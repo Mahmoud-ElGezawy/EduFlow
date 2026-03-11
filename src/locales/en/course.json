@@ -2,5 +2,13 @@
   "lessons": "Lessons",
   "buyCourse": "Buy Course",
   "viewCourse": "View Course",
-  "enrollNow": "Enroll Now"
+  "enrollNow": "Enroll Now",
+  "courseForm": {
+    "title": "Course Title",
+    "description": "Description",
+    "price": "Price",
+    "grade": "Grade",
+    "category": "Category",
+    "createCourse": "Create Course"
+  }
 }

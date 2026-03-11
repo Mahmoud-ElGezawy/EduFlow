@@ -66,7 +66,7 @@ export function TeacherExamples() {
                     transition: 'transform 0.3s ease',
                   }}
                 >
-                  <ArrowIcon sx={{ fontSize: 20 }} />
+                  <ArrowIcon className="rtl-flip" sx={{ fontSize: 20 }} />
                 </Box>
               </CardContent>
             </Card>

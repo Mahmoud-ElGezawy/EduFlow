@@ -1,4 +1,5 @@
 {
+  "title": "My Courses",
   "overview": "Overview",
   "myCourses": "My Courses",
   "assignments": "Assignments",
@@ -21,5 +22,12 @@
   "due": "Due",
   "submitted": "Submitted",
   "pending": "Pending",
-  "submit": "Submit"
+  "submit": "Submit",
+  "viewDetails": "View Details",
+  "backToAssignments": "Back to Assignments",
+  "instructions": "Instructions",
+  "submittedAt": "Submitted at",
+  "grade": "Grade",
+  "feedback": "Feedback",
+  "downloadAssignmentPdf": "Download assignment brief (PDF)"
 }

@@ -56,6 +56,7 @@ function RootComponent() {
     const current = i18n.language?.split('-')[0]
     if (current !== lang) {
       i18n.changeLanguage(lang)
+      localStorage.setItem('i18nextLng', lang)
     }
   }, [lang, pathname])
 
@@ -67,6 +68,17 @@ function RootComponent() {
             styles={{
               '[lang="ar"]': { fontFamily: '"Cairo", "Helvetica", "Arial", sans-serif' },
               '[lang="en"]': { fontFamily: '"Plus Jakarta Sans", "Helvetica", "Arial", sans-serif' },
+              /* RTL: placeholders and input text align right */
+              '[dir="rtl"] input::placeholder, [dir="rtl"] textarea::placeholder': {
+                textAlign: 'right',
+              },
+              '[dir="rtl"] input, [dir="rtl"] textarea': {
+                textAlign: 'right',
+              },
+              /* RTL: flip directional arrow icons */
+              '[dir="rtl"] .rtl-flip': { transform: 'scaleX(-1)' },
+              /* RTL: flip pagination arrows */
+              '[dir="rtl"] .MuiTablePagination-actions .MuiSvgIcon-root': { transform: 'scaleX(-1)' },
             }}
           />
           <CssBaseline />

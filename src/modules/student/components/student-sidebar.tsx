@@ -1,23 +1,17 @@
 import { Box, Drawer, IconButton, List, ListItem, ListItemButton, ListItemIcon, ListItemText, Toolbar } from '@mui/material'
 import { Close as CloseIcon, School as CoursesIcon, Assignment as AssignmentsIcon, Home as HomeIcon } from '@mui/icons-material'
 import { useLocation } from '@tanstack/react-router'
-import { I18nLink, getPathWithoutLang } from '@/i18n/navigation'
+import { I18nLink, getPathWithoutLang, isPathActive } from '@/i18n/navigation'
 import { useTranslation } from 'react-i18next'
 
 const SIDEBAR_WIDTH = 260
 const SIDEBAR_WIDTH_MOBILE = 'min(280px, 85vw)'
 
 const items = [
-  { to: '/student', icon: HomeIcon, labelKey: 'overview' },
+  { to: '/student', icon: HomeIcon, labelKey: 'overview', exact: true },
   { to: '/student/courses', icon: CoursesIcon, labelKey: 'myCourses' },
   { to: '/student/assignments', icon: AssignmentsIcon, labelKey: 'assignments' },
 ]
-
-function isItemSelected(pathWithoutLang: string, itemTo: string): boolean {
-  if (pathWithoutLang === itemTo) return true
-  if (itemTo === '/student') return false
-  return pathWithoutLang.startsWith(itemTo + '/')
-}
 
 const sidebarBoxSx = {
   width: SIDEBAR_WIDTH,
@@ -32,26 +26,31 @@ const sidebarContent = (
   t: (key: string) => string
 ) => (
   <List sx={{ py: 2, px: 1 }}>
-    {items.map((item) => (
+    {items.map((item) => {
+      const selected = isPathActive(pathWithoutLang ?? '', item.to, (item as { exact?: boolean }).exact)
+      return (
       <ListItem key={item.to} disablePadding sx={{ mb: 0.5 }}>
         <ListItemButton
           component={I18nLink}
           to={item.to}
-          selected={isItemSelected(pathWithoutLang, item.to)}
+          selected={selected}
           sx={{
             borderRadius: 2,
             py: 1.5,
-            '&:hover': {
-              backgroundColor: 'primary.main',
-              color: 'white',
-              '& .MuiListItemIcon-root': { color: 'inherit' },
-            },
-            '&.Mui-selected': {
+            ...(selected && {
               backgroundColor: 'primary.main',
               color: 'white',
               '& .MuiListItemIcon-root': { color: 'inherit' },
               '&:hover': { backgroundColor: 'primary.dark' },
-            },
+              boxShadow: '0 1px 3px rgba(0,0,0,0.08)',
+            }),
+            ...(!selected && {
+              '&:hover': {
+                backgroundColor: 'primary.main',
+                color: 'white',
+                '& .MuiListItemIcon-root': { color: 'inherit' },
+              },
+            }),
           }}
         >
           <ListItemIcon sx={{ minWidth: 40 }}>
@@ -60,7 +59,8 @@ const sidebarContent = (
           <ListItemText primary={t(item.labelKey)} primaryTypographyProps={{ fontWeight: 500 }} />
         </ListItemButton>
       </ListItem>
-    ))}
+      )
+    })}
   </List>
 )
 
@@ -115,7 +115,7 @@ export function StudentSidebarDrawer({ open, onClose, anchor = 'left' }: Student
       <Box sx={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
         <Toolbar sx={{ justifyContent: 'flex-end', px: 1, minHeight: { xs: 56, sm: 64 } }}>
           <IconButton
-            aria-label="close sidebar"
+            aria-label={t('aria.closeSidebar', { ns: 'common' })}
             onClick={onClose}
             sx={{ color: 'text.primary' }}
           >

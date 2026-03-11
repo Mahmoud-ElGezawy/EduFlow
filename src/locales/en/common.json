@@ -20,5 +20,14 @@
     "studentDashboard": "My Courses"
   },
   "loading": "Loading...",
-  "comingSoon": "Coming soon"
+  "comingSoon": "Coming soon",
+  "switchToEnglish": "Switch to English",
+  "switchToArabic": "التبديل للعربية",
+  "cancel": "Cancel",
+  "aria": {
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu",
+    "openSidebar": "Open sidebar",
+    "closeSidebar": "Close sidebar"
+  }
 }

@@ -32,7 +32,7 @@ export function StudentLayout() {
           <Toolbar sx={{ px: { xs: 2, sm: 3 } }}>
             <IconButton
               color="inherit"
-              aria-label="open sidebar"
+              aria-label={t('aria.openSidebar', { ns: 'common' })}
               edge="start"
               onClick={() => setSidebarOpen(true)}
               sx={{ mr: 2, color: 'text.primary' }}
@@ -40,7 +40,7 @@ export function StudentLayout() {
               <MenuIcon />
             </IconButton>
             <Typography variant="h6" sx={{ fontWeight: 700, color: 'text.primary' }}>
-              {t('title', { defaultValue: 'My Courses' })}
+              {t('title')}
             </Typography>
           </Toolbar>
         </AppBar>

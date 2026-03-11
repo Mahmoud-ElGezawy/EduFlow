@@ -6,5 +6,10 @@
   "reviews": "Reviews",
   "noReviews": "No reviews yet.",
   "joinAcademy": "Join Academy",
-  "viewCourses": "View Courses"
+  "viewCourses": "View Courses",
+  "bookSession": "Book a Session",
+  "bookSessionDescription": "Schedule a one-on-one or group session with this teacher.",
+  "viewAvailability": "View Availability",
+  "bookingComingSoon": "Session booking will be available soon. Subscribe to the academy to get notified.",
+  "backToProfile": "Back to profile"
 }

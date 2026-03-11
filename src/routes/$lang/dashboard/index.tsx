@@ -4,7 +4,7 @@ import { useDashboardStats } from '@/api/hooks/use-dashboard'
 import { StatCard } from '@/modules/dashboard/components/stat-card'
 import { AnalyticsChart } from '@/modules/dashboard/components/analytics-chart'
 import { useTranslation } from 'react-i18next'
-import { mockDashboardStats, mockTeacherAnalytics } from '@/api/mock-data'
+import { mockDashboardStats, mockTeacherAnalytics, mockEngagementAnalytics } from '@/api/mock-data'
 
 export const Route = createFileRoute('/$lang/dashboard/')({
   component: DashboardOverviewPage,
@@ -49,6 +49,16 @@ function DashboardOverviewPage() {
             title={t('analytics.students', { ns: 'dashboard' })}
             data={mockTeacherAnalytics as { month: string; [key: string]: string | number | undefined }[]}
             dataKeys={[{ key: 'students', color: '#6366f1', name: t('totalStudents', { ns: 'dashboard' }) }]}
+          />
+        </Grid>
+        <Grid item xs={12}>
+          <AnalyticsChart
+            title={t('analytics.engagement', { ns: 'dashboard', defaultValue: 'Student Engagement' })}
+            data={mockEngagementAnalytics as { month: string; [key: string]: string | number | undefined }[]}
+            dataKeys={[
+              { key: 'progress', color: '#10b981', name: t('analytics.avgProgress', { ns: 'dashboard', defaultValue: 'Avg. Progress %' }) },
+              { key: 'enrollments', color: '#f59e0b', name: t('analytics.enrollments', { ns: 'dashboard', defaultValue: 'Enrollments' }) },
+            ]}
           />
         </Grid>
       </Grid>

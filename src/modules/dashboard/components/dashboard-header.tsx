@@ -23,7 +23,7 @@ export function DashboardHeader({ onMenuClick }: DashboardHeaderProps) {
       <Toolbar sx={{ px: { xs: 2, sm: 3 } }}>
         <IconButton
           color="inherit"
-          aria-label="open sidebar"
+          aria-label={t('aria.openSidebar', { ns: 'common' })}
           edge="start"
           onClick={() => onMenuClick?.()}
           sx={{ mr: 2, display: { md: 'none' }, color: 'text.primary' }}

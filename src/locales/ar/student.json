@@ -1,4 +1,5 @@
 {
+  "title": "دوراتي",
   "overview": "نظرة عامة",
   "myCourses": "دوراتي",
   "assignments": "الواجبات",
@@ -21,5 +22,12 @@
   "due": "مستحق",
   "submitted": "تم الإرسال",
   "pending": "معلق",
-  "submit": "إرسال"
+  "submit": "إرسال",
+  "viewDetails": "عرض التفاصيل",
+  "backToAssignments": "العودة للواجبات",
+  "instructions": "التعليمات",
+  "submittedAt": "تم الإرسال في",
+  "grade": "الدرجة",
+  "feedback": "التعليق",
+  "downloadAssignmentPdf": "تحميل نص الواجب (PDF)"
 }

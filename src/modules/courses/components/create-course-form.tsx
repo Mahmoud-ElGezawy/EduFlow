@@ -1,4 +1,5 @@
 import { Box, TextField, Button } from '@mui/material'
+import { useTranslation } from 'react-i18next'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { createCourseSchema, type CreateCourseInput } from '../schemas/create-course.schema'
@@ -8,6 +9,7 @@ interface CreateCourseFormProps {
 }
 
 export function CreateCourseForm({ onSubmit }: CreateCourseFormProps) {
+  const { t } = useTranslation('course')
   const {
     register,
     handleSubmit,
@@ -26,14 +28,14 @@ export function CreateCourseForm({ onSubmit }: CreateCourseFormProps) {
   return (
     <Box component="form" onSubmit={handleSubmit(onSubmit)} sx={{ display: 'flex', flexDirection: 'column', gap: 2, maxWidth: 500, width: '100%' }}>
       <TextField
-        label="Course Title"
+        label={t('courseForm.title')}
         {...register('title')}
         error={!!errors.title}
         helperText={errors.title?.message}
         fullWidth
       />
       <TextField
-        label="Description"
+        label={t('courseForm.description')}
         {...register('description')}
         error={!!errors.description}
         helperText={errors.description?.message}
@@ -42,17 +44,17 @@ export function CreateCourseForm({ onSubmit }: CreateCourseFormProps) {
         fullWidth
       />
       <TextField
-        label="Price"
+        label={t('courseForm.price')}
         type="number"
         {...register('price', { valueAsNumber: true })}
         error={!!errors.price}
         helperText={errors.price?.message}
         fullWidth
       />
-      <TextField label="Grade" {...register('grade')} fullWidth />
-      <TextField label="Category" {...register('category')} fullWidth />
+      <TextField label={t('courseForm.grade')} {...register('grade')} fullWidth />
+      <TextField label={t('courseForm.category')} {...register('category')} fullWidth />
       <Button type="submit" variant="contained">
-        Create Course
+        {t('courseForm.createCourse')}
       </Button>
     </Box>
   )

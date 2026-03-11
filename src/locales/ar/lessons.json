@@ -1,0 +1,47 @@
+{
+  "lessonForm": {
+    "title": "عنوان الدرس",
+    "type": "نوع الدرس",
+    "videoUrl": "رابط الفيديو",
+    "duration": "المدة (بالدقائق)",
+    "addLesson": "إضافة درس",
+    "types": {
+      "video": "فيديو",
+      "quiz": "اختبار",
+      "pdf": "PDF",
+      "assignment": "واجب"
+    },
+    "quickBuildQuiz": "بناء اختبار سريع"
+  },
+  "quiz": {
+    "questions": "أسئلة الاختبار",
+    "addQuestion": "إضافة سؤال",
+    "emptyHint": "انقر \"إضافة سؤال\" لبناء اختبارك.",
+    "questionLabel": "السؤال {{number}}",
+    "questionType": "نوع السؤال",
+    "questionTypes": {
+      "single": "اختيار من متعدد (إجابة واحدة)",
+      "multiple": "اختيار من متعدد (اختر كل ما ينطبق)",
+      "true_false": "صح / خطأ",
+      "short_answer": "إجابة قصيرة (نص)"
+    },
+    "points": "النقاط",
+    "explanation": "التوضيح (اختياري، يظهر بعد الإجابة)",
+    "explanationPlaceholder": "لماذا هذه الإجابة صحيحة...",
+    "optionsHintSingle": "اختر الإجابة الصحيحة (واحدة فقط)",
+    "optionsHintMultiple": "حدد كل الإجابات الصحيحة",
+    "optionsHintTrueFalse": "اختر الإجابة الصحيحة",
+    "optionPlaceholder": "الخيار {{number}}",
+    "addOption": "إضافة خيار",
+    "acceptedAnswers": "الإجابات المقبولة",
+    "acceptedAnswersHint": "سيتم مطابقة إدخال الطالب بهذه الإجابات",
+    "acceptedAnswerPlaceholder": "الإجابة المقبولة {{number}}",
+    "addAcceptedAnswer": "إضافة إجابة مقبولة",
+    "removeQuestion": "إزالة السؤال",
+    "removeOption": "إزالة الخيار",
+    "removeAnswer": "إزالة الإجابة",
+    "dragToReorder": "اسحب لإعادة الترتيب",
+    "true": "صح",
+    "false": "خطأ"
+  }
+}

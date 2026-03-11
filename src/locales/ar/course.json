@@ -2,5 +2,13 @@
   "lessons": "الدروس",
   "buyCourse": "اشترِ الدورة",
   "viewCourse": "عرض الدورة",
-  "enrollNow": "سجّل الآن"
+  "enrollNow": "سجّل الآن",
+  "courseForm": {
+    "title": "عنوان الدورة",
+    "description": "الوصف",
+    "price": "السعر",
+    "grade": "الصف",
+    "category": "الفئة",
+    "createCourse": "إنشاء الدورة"
+  }
 }

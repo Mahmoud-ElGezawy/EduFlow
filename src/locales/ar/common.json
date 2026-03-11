@@ -20,5 +20,14 @@
     "studentDashboard": "دوراتي"
   },
   "loading": "جاري التحميل...",
-  "comingSoon": "قريباً"
+  "comingSoon": "قريباً",
+  "switchToEnglish": "التبديل للإنجليزية",
+  "switchToArabic": "التبديل للعربية",
+  "cancel": "إلغاء",
+  "aria": {
+    "openMenu": "فتح القائمة",
+    "closeMenu": "إغلاق القائمة",
+    "openSidebar": "فتح الشريط الجانبي",
+    "closeSidebar": "إغلاق الشريط الجانبي"
+  }
 }

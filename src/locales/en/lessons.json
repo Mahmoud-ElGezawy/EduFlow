@@ -1,0 +1,47 @@
+{
+  "lessonForm": {
+    "title": "Lesson Title",
+    "type": "Lesson Type",
+    "videoUrl": "Video URL",
+    "duration": "Duration (minutes)",
+    "addLesson": "Add Lesson",
+    "types": {
+      "video": "Video",
+      "quiz": "Quiz",
+      "pdf": "PDF",
+      "assignment": "Assignment"
+    },
+    "quickBuildQuiz": "Quick Build Quiz"
+  },
+  "quiz": {
+    "questions": "Quiz Questions",
+    "addQuestion": "Add Question",
+    "emptyHint": "Click \"Add Question\" to build your quiz.",
+    "questionLabel": "Question {{number}}",
+    "questionType": "Question type",
+    "questionTypes": {
+      "single": "Single choice (one answer)",
+      "multiple": "Multiple choice (select all that apply)",
+      "true_false": "True / False",
+      "short_answer": "Short answer (text input)"
+    },
+    "points": "Points",
+    "explanation": "Explanation (optional, shown after answering)",
+    "explanationPlaceholder": "Why this answer is correct...",
+    "optionsHintSingle": "Select the correct answer (one only)",
+    "optionsHintMultiple": "Check all correct answers",
+    "optionsHintTrueFalse": "Select the correct answer",
+    "optionPlaceholder": "Option {{number}}",
+    "addOption": "Add Option",
+    "acceptedAnswers": "Accepted answers",
+    "acceptedAnswersHint": "Student input will be matched against these",
+    "acceptedAnswerPlaceholder": "Accepted answer {{number}}",
+    "addAcceptedAnswer": "Add accepted answer",
+    "removeQuestion": "Remove question",
+    "removeOption": "Remove option",
+    "removeAnswer": "Remove answer",
+    "dragToReorder": "Drag to reorder",
+    "true": "True",
+    "false": "False"
+  }
+}

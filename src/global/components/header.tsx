@@ -15,8 +15,7 @@ import {
 import { Menu as MenuIcon, Language as LanguageIcon, Close as CloseIcon } from '@mui/icons-material'
 import { useLocation, useNavigate } from '@tanstack/react-router'
 import { useTranslation } from 'react-i18next'
-import { getLangFromPath } from '@/i18n/resource'
-import { toRoutePath, getPathWithoutLang, I18nLink } from '@/i18n/navigation'
+import { toRoutePath, getPathWithoutLang, I18nLink, useCurrentLang, isPathActive } from '@/i18n/navigation'
 
 const navItems = [
   { to: '/', labelKey: 'nav.home' },
@@ -32,7 +31,7 @@ export function Header() {
   const [mobileOpen, setMobileOpen] = useState(false)
   const { pathname } = useLocation()
   const navigate = useNavigate()
-  const lang = getLangFromPath(pathname)
+  const lang = useCurrentLang()
 
   const toggleLang = () => {
     const newLang = lang === 'ar' ? 'en' : 'ar'
@@ -50,6 +49,13 @@ export function Header() {
     return () => mq.removeEventListener('change', handler)
   }, [])
 
+  const pathWithoutLang = getPathWithoutLang(pathname) || '/'
+
+  const isNavItemActive = (to: string) => {
+    if (to === '/#pricing') return pathWithoutLang === '/' && pathname.includes('#pricing')
+    return isPathActive(pathWithoutLang, to.split('#')[0], to === '/' || to === '/dashboard' || to === '/student')
+  }
+
   const navContent = (
     <Box
       sx={{
@@ -63,28 +69,36 @@ export function Header() {
         onClick={toggleLang}
         size="small"
         sx={{ color: 'text.secondary', flexShrink: 0 }}
-        title={lang === 'ar' ? 'Switch to English' : 'التبديل للعربية'}
+        title={lang === 'ar' ? t('switchToEnglish', { ns: 'common' }) : t('switchToArabic', { ns: 'common' })}
       >
         <LanguageIcon />
       </IconButton>
-      {navItems.map((item) => (
-        <Button
-          key={item.to}
-          component={I18nLink}
-          to={item.to}
-          variant={item.variant ?? 'text'}
-          size="small"
-          sx={{
-            color: 'text.primary',
-            fontWeight: 500,
-            px: { lg: 1.5, xl: 2 },
-            fontSize: { lg: '0.8125rem', xl: '0.875rem' },
-            ...(item.variant === 'contained' && { ml: 0.5 }),
-          }}
-        >
-          {t(item.labelKey, { ns: item.ns ?? 'common', defaultValue: item.labelKey })}
-        </Button>
-      ))}
+      {navItems.map((item) => {
+        const active = isNavItemActive(item.to)
+        return (
+          <Button
+            key={item.to}
+            component={I18nLink}
+            to={item.to}
+            variant={item.variant ?? 'text'}
+            size="small"
+            sx={{
+              color: active && item.variant !== 'contained' ? 'white' : (active ? undefined : 'text.primary'),
+              fontWeight: 500,
+              px: { lg: 1.5, xl: 2 },
+              fontSize: { lg: '0.8125rem', xl: '0.875rem' },
+              ...(item.variant === 'contained' && { ml: 0.5 }),
+              ...(active && item.variant !== 'contained' && {
+                backgroundColor: 'primary.main',
+                color: 'white',
+                '&:hover': { backgroundColor: 'primary.dark', color: 'white' },
+              }),
+            }}
+          >
+            {t(item.labelKey, { ns: item.ns ?? 'common', defaultValue: item.labelKey })}
+          </Button>
+        )
+      })}
     </Box>
   )
 
@@ -94,21 +108,38 @@ export function Header() {
         <IconButton onClick={toggleLang} size="small" sx={{ color: 'text.secondary' }}>
           <LanguageIcon />
         </IconButton>
-        <IconButton aria-label="close menu" onClick={handleDrawerToggle} sx={{ color: 'text.primary' }}>
+        <IconButton aria-label={t('aria.closeMenu', { ns: 'common' })} onClick={handleDrawerToggle} sx={{ color: 'text.primary' }}>
           <CloseIcon />
         </IconButton>
       </Box>
       <List>
-        {navItems.map((item) => (
-          <ListItem key={item.to} disablePadding>
-            <ListItemButton component={I18nLink} to={item.to} sx={{ py: 1.5 }}>
-              <ListItemText
-                primary={t(item.labelKey, { ns: item.ns ?? 'common', defaultValue: item.labelKey })}
-                primaryTypographyProps={{ fontWeight: 500 }}
-              />
-            </ListItemButton>
-          </ListItem>
-        ))}
+        {navItems.map((item) => {
+          const active = isNavItemActive(item.to)
+          return (
+            <ListItem key={item.to} disablePadding>
+              <ListItemButton
+                component={I18nLink}
+                to={item.to}
+                selected={active}
+                sx={{
+                  py: 1.5,
+                  borderRadius: 2,
+                  mx: 1,
+                  ...(active && {
+                    backgroundColor: 'primary.main',
+                    color: 'white',
+                    '&:hover': { backgroundColor: 'primary.dark', color: 'white' },
+                  }),
+                }}
+              >
+                <ListItemText
+                  primary={t(item.labelKey, { ns: item.ns ?? 'common', defaultValue: item.labelKey })}
+                  primaryTypographyProps={{ fontWeight: 500 }}
+                />
+              </ListItemButton>
+            </ListItem>
+          )
+        })}
       </List>
     </Box>
   )
@@ -136,7 +167,7 @@ export function Header() {
         >
           <IconButton
             color="inherit"
-            aria-label="open menu"
+            aria-label={t('aria.openMenu', { ns: 'common' })}
             edge="start"
             onClick={handleDrawerToggle}
             sx={{ mr: 2, display: { lg: 'none' }, color: 'text.primary' }}

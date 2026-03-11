@@ -10,19 +10,34 @@ export interface DashboardStats {
 
 export interface Assignment {
   id: string
+  studentId: string
   studentName: string
+  courseId: string
+  courseTitle: string
   title: string
-  submissionDate: string
+  description?: string
+  instructions?: string
+  /** PDF or file URL for assignment brief/worksheet (teacher provides, student downloads) */
+  instructionsPdfUrl?: string
+  dueDate: string
+  submissionDate?: string
   status: 'pending' | 'submitted' | 'graded'
+  submittedFileUrl?: string
+  grade?: number
+  feedback?: string
 }
 
 export interface Student {
   id: string
   name: string
+  email?: string
+  phone?: string
   course: string
+  courseId?: string
   joinDate: string
   progress: number
 }
+
 
 export async function getDashboardStats(): Promise<DashboardStats> {
   try {

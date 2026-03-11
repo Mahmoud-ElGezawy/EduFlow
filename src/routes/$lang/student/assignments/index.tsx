@@ -39,11 +39,14 @@ function StudentAssignmentsPage() {
                   color={a.status === 'submitted' ? 'success' : 'default'}
                   size="small"
                 />
-                {a.status === 'pending' && (
-                  <Button variant="contained" size="small" component={I18nLink} to="/student/courses/1">
-                    {t('submit')}
-                  </Button>
-                )}
+                <Button
+                  variant={a.status === 'pending' ? 'contained' : 'outlined'}
+                  size="small"
+                  component={I18nLink}
+                  to={`/student/assignments/${a.id}`}
+                >
+                  {t('viewDetails', { defaultValue: 'View Details' })}
+                </Button>
               </Box>
             </CardContent>
           </Card>

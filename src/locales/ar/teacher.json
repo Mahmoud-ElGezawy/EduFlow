@@ -6,5 +6,10 @@
   "reviews": "التقييمات",
   "noReviews": "لا توجد تقييمات بعد.",
   "joinAcademy": "انضم للأكاديمية",
-  "viewCourses": "عرض الدورات"
+  "viewCourses": "عرض الدورات",
+  "bookSession": "احجز جلسة",
+  "bookSessionDescription": "جدول جلسة فردية أو جماعية مع هذا المعلم.",
+  "viewAvailability": "عرض الأوقات المتاحة",
+  "bookingComingSoon": "سيتم تفعيل حجز الجلسات قريباً. اشترك في الأكاديمية لتلقي الإشعارات.",
+  "backToProfile": "العودة للملف الشخصي"
 }

@@ -8,6 +8,7 @@ import arTeacher from '../locales/ar/teacher.json'
 import arCourse from '../locales/ar/course.json'
 import arStudent from '../locales/ar/student.json'
 import arPayment from '../locales/ar/payment.json'
+import arLessons from '../locales/ar/lessons.json'
 
 import enCommon from '../locales/en/common.json'
 import enHome from '../locales/en/home.json'
@@ -16,6 +17,7 @@ import enTeacher from '../locales/en/teacher.json'
 import enCourse from '../locales/en/course.json'
 import enStudent from '../locales/en/student.json'
 import enPayment from '../locales/en/payment.json'
+import enLessons from '../locales/en/lessons.json'
 
 const SUPPORTED = ['ar', 'en'] as const
 
@@ -35,6 +37,7 @@ i18n.use(initReactI18next).init({
       course: arCourse,
       student: arStudent,
       payment: arPayment,
+      lessons: arLessons,
     },
     en: {
       common: enCommon,
@@ -44,12 +47,13 @@ i18n.use(initReactI18next).init({
       course: enCourse,
       student: enStudent,
       payment: enPayment,
+      lessons: enLessons,
     },
   },
   lng: getInitialLang(),
   fallbackLng: 'ar',
   defaultNS: 'common',
-  ns: ['common', 'home', 'dashboard', 'teacher', 'course', 'student', 'payment'],
+  ns: ['common', 'home', 'dashboard', 'teacher', 'course', 'student', 'payment', 'lessons'],
   interpolation: { escapeValue: false },
   initImmediate: false,
   react: { useSuspense: false },
@@ -57,4 +61,4 @@ i18n.use(initReactI18next).init({
 
 export default i18n
 export { LANGUAGES, LOCALE_DEFAULT, getSupportedLanguage } from './resource'
-export { useI18nNavigate, I18nLink } from './navigation'
+export { useI18nNavigate, I18nLink, useCurrentLang, useIsActiveLink, isPathActive, getPathWithoutLang } from './navigation'

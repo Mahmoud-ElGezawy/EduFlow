@@ -5,42 +5,40 @@ import {
   School as CoursesIcon,
   People as StudentsIcon,
   Assignment as AssignmentsIcon,
+  EventAvailable as BookingIcon,
   Payment as PaymentsIcon,
   Settings as SettingsIcon,
 } from '@mui/icons-material'
 import { useLocation } from '@tanstack/react-router'
 import { useTranslation } from 'react-i18next'
-import { I18nLink, getPathWithoutLang } from '@/i18n/navigation'
+import { I18nLink, getPathWithoutLang, isPathActive } from '@/i18n/navigation'
 
 const SIDEBAR_WIDTH = 260
 const SIDEBAR_WIDTH_MOBILE = 'min(280px, 85vw)'
 
 const items = [
-  { to: '/dashboard', icon: DashboardIcon, labelKey: 'overview' },
+  { to: '/dashboard', icon: DashboardIcon, labelKey: 'overview', exact: true },
   { to: '/dashboard/courses', icon: CoursesIcon, labelKey: 'courses' },
   { to: '/dashboard/students', icon: StudentsIcon, labelKey: 'students' },
+  { to: '/dashboard/booking', icon: BookingIcon, labelKey: 'booking' },
   { to: '/dashboard/assignments', icon: AssignmentsIcon, labelKey: 'assignments' },
   { to: '/dashboard/payments', icon: PaymentsIcon, labelKey: 'payments' },
   { to: '/dashboard/settings', icon: SettingsIcon, labelKey: 'settings' },
 ]
-
-function isItemSelected(pathWithoutLang: string, itemTo: string): boolean {
-  if (pathWithoutLang === itemTo) return true
-  if (itemTo === '/dashboard') return false
-  return pathWithoutLang.startsWith(itemTo + '/')
-}
 
 const sidebarContent = (
   pathWithoutLang: string,
   t: (key: string, opts?: { ns?: string }) => string
 ) => (
   <List sx={{ py: 2, px: 1 }}>
-    {items.map((item) => (
+    {items.map((item) => {
+      const selected = isPathActive(pathWithoutLang ?? '', item.to, item.exact)
+      return (
       <ListItem key={item.to} disablePadding sx={{ mb: 0.5 }}>
         <ListItemButton
           component={I18nLink}
           to={item.to}
-          selected={isItemSelected(pathWithoutLang, item.to)}
+          selected={selected}
           sx={{
             borderRadius: 2,
             py: 1.5,
@@ -49,12 +47,19 @@ const sidebarContent = (
               color: 'white',
               '& .MuiListItemIcon-root': { color: 'inherit' },
             },
-            '&.Mui-selected': {
-              backgroundColor: 'primary.main',
-              color: 'white',
+            ...(selected && {
+              '--variant-textColor': '#0D9488',
+              '--variant-textBg': 'rgba(13, 148, 136, 0.12)',
+              '--variant-outlinedColor': '#0D9488',
+              '--variant-outlinedBorder': 'rgba(13, 148, 136, 0.5)',
+              color: 'var(--variant-textColor)',
+              backgroundColor: 'var(--variant-textBg)',
               '& .MuiListItemIcon-root': { color: 'inherit' },
-              '&:hover': { backgroundColor: 'primary.dark' },
-            },
+              '&:hover': {
+                backgroundColor: 'rgba(13, 148, 136, 0.2)',
+                color: 'var(--variant-textColor)',
+              },
+            }),
           }}
         >
           <ListItemIcon sx={{ minWidth: 40 }}>
@@ -63,7 +68,8 @@ const sidebarContent = (
           <ListItemText primary={t(item.labelKey, { ns: 'dashboard' })} primaryTypographyProps={{ fontWeight: 500 }} />
         </ListItemButton>
       </ListItem>
-    ))}
+      )
+    })}
   </List>
 )
 
@@ -126,7 +132,7 @@ export function DashboardSidebarDrawer({ open, onClose, anchor = 'left' }: Dashb
       <Box sx={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
         <Toolbar sx={{ justifyContent: 'flex-end', px: 1, minHeight: { xs: 56, sm: 64 } }}>
           <IconButton
-            aria-label="close sidebar"
+            aria-label={t('aria.closeSidebar', { ns: 'common' })}
             onClick={onClose}
             sx={{ color: 'text.primary' }}
           >

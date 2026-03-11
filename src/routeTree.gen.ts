@@ -22,14 +22,30 @@ import { Route as LangDashboardIndexRouteImport } from './routes/$lang/dashboard
 import { Route as LangTeacherTeacherSlugRouteImport } from './routes/$lang/teacher/$teacherSlug'
 import { Route as LangSubscribeCheckoutRouteImport } from './routes/$lang/subscribe/checkout'
 import { Route as LangCourseCourseSlugRouteImport } from './routes/$lang/course/$courseSlug'
+import { Route as LangStudentAssignmentsRouteRouteImport } from './routes/$lang/student/assignments/route'
+import { Route as LangDashboardStudentsRouteRouteImport } from './routes/$lang/dashboard/students/route'
+import { Route as LangDashboardSettingsRouteRouteImport } from './routes/$lang/dashboard/settings/route'
+import { Route as LangDashboardAssignmentsRouteRouteImport } from './routes/$lang/dashboard/assignments/route'
 import { Route as LangStudentCoursesIndexRouteImport } from './routes/$lang/student/courses/index'
 import { Route as LangStudentAssignmentsIndexRouteImport } from './routes/$lang/student/assignments/index'
 import { Route as LangDashboardStudentsIndexRouteImport } from './routes/$lang/dashboard/students/index'
 import { Route as LangDashboardSettingsIndexRouteImport } from './routes/$lang/dashboard/settings/index'
 import { Route as LangDashboardPaymentsIndexRouteImport } from './routes/$lang/dashboard/payments/index'
 import { Route as LangDashboardCoursesIndexRouteImport } from './routes/$lang/dashboard/courses/index'
+import { Route as LangDashboardBookingIndexRouteImport } from './routes/$lang/dashboard/booking/index'
 import { Route as LangDashboardAssignmentsIndexRouteImport } from './routes/$lang/dashboard/assignments/index'
+import { Route as LangTeacherTeacherSlugBookRouteImport } from './routes/$lang/teacher/$teacherSlug/book'
+import { Route as LangStudentAssignmentsAssignmentIdRouteImport } from './routes/$lang/student/assignments/$assignmentId'
+import { Route as LangDashboardStudentsStudentIdRouteImport } from './routes/$lang/dashboard/students/$studentId'
+import { Route as LangDashboardSettingsThemeRouteImport } from './routes/$lang/dashboard/settings/theme'
+import { Route as LangDashboardSettingsPaymentsRouteImport } from './routes/$lang/dashboard/settings/payments'
+import { Route as LangDashboardSettingsNotificationsRouteImport } from './routes/$lang/dashboard/settings/notifications'
+import { Route as LangDashboardSettingsIntegrationsRouteImport } from './routes/$lang/dashboard/settings/integrations'
+import { Route as LangDashboardSettingsGeneralRouteImport } from './routes/$lang/dashboard/settings/general'
+import { Route as LangDashboardSettingsBookingRouteImport } from './routes/$lang/dashboard/settings/booking'
+import { Route as LangDashboardSettingsAutomationRouteImport } from './routes/$lang/dashboard/settings/automation'
 import { Route as LangDashboardCoursesNewRouteImport } from './routes/$lang/dashboard/courses/new'
+import { Route as LangDashboardAssignmentsAssignmentIdRouteImport } from './routes/$lang/dashboard/assignments/$assignmentId'
 import { Route as LangStudentCoursesCourseIdIndexRouteImport } from './routes/$lang/student/courses/$courseId/index'
 import { Route as LangDashboardCoursesCourseIdLessonsIndexRouteImport } from './routes/$lang/dashboard/courses/$courseId/lessons/index'
 import { Route as LangStudentCoursesCourseIdLessonsLessonIdRouteImport } from './routes/$lang/student/courses/$courseId/lessons/$lessonId'
@@ -100,6 +116,30 @@ const LangCourseCourseSlugRoute = LangCourseCourseSlugRouteImport.update({
   path: '/course/$courseSlug',
   getParentRoute: () => LangRouteRoute,
 } as any)
+const LangStudentAssignmentsRouteRoute =
+  LangStudentAssignmentsRouteRouteImport.update({
+    id: '/assignments',
+    path: '/assignments',
+    getParentRoute: () => LangStudentRouteRoute,
+  } as any)
+const LangDashboardStudentsRouteRoute =
+  LangDashboardStudentsRouteRouteImport.update({
+    id: '/students',
+    path: '/students',
+    getParentRoute: () => LangDashboardRouteRoute,
+  } as any)
+const LangDashboardSettingsRouteRoute =
+  LangDashboardSettingsRouteRouteImport.update({
+    id: '/settings',
+    path: '/settings',
+    getParentRoute: () => LangDashboardRouteRoute,
+  } as any)
+const LangDashboardAssignmentsRouteRoute =
+  LangDashboardAssignmentsRouteRouteImport.update({
+    id: '/assignments',
+    path: '/assignments',
+    getParentRoute: () => LangDashboardRouteRoute,
+  } as any)
 const LangStudentCoursesIndexRoute = LangStudentCoursesIndexRouteImport.update({
   id: '/courses/',
   path: '/courses/',
@@ -107,21 +147,21 @@ const LangStudentCoursesIndexRoute = LangStudentCoursesIndexRouteImport.update({
 } as any)
 const LangStudentAssignmentsIndexRoute =
   LangStudentAssignmentsIndexRouteImport.update({
-    id: '/assignments/',
-    path: '/assignments/',
-    getParentRoute: () => LangStudentRouteRoute,
+    id: '/',
+    path: '/',
+    getParentRoute: () => LangStudentAssignmentsRouteRoute,
   } as any)
 const LangDashboardStudentsIndexRoute =
   LangDashboardStudentsIndexRouteImport.update({
-    id: '/students/',
-    path: '/students/',
-    getParentRoute: () => LangDashboardRouteRoute,
+    id: '/',
+    path: '/',
+    getParentRoute: () => LangDashboardStudentsRouteRoute,
   } as any)
 const LangDashboardSettingsIndexRoute =
   LangDashboardSettingsIndexRouteImport.update({
-    id: '/settings/',
-    path: '/settings/',
-    getParentRoute: () => LangDashboardRouteRoute,
+    id: '/',
+    path: '/',
+    getParentRoute: () => LangDashboardSettingsRouteRoute,
   } as any)
 const LangDashboardPaymentsIndexRoute =
   LangDashboardPaymentsIndexRouteImport.update({
@@ -135,17 +175,89 @@ const LangDashboardCoursesIndexRoute =
     path: '/courses/',
     getParentRoute: () => LangDashboardRouteRoute,
   } as any)
+const LangDashboardBookingIndexRoute =
+  LangDashboardBookingIndexRouteImport.update({
+    id: '/booking/',
+    path: '/booking/',
+    getParentRoute: () => LangDashboardRouteRoute,
+  } as any)
 const LangDashboardAssignmentsIndexRoute =
   LangDashboardAssignmentsIndexRouteImport.update({
-    id: '/assignments/',
-    path: '/assignments/',
-    getParentRoute: () => LangDashboardRouteRoute,
+    id: '/',
+    path: '/',
+    getParentRoute: () => LangDashboardAssignmentsRouteRoute,
+  } as any)
+const LangTeacherTeacherSlugBookRoute =
+  LangTeacherTeacherSlugBookRouteImport.update({
+    id: '/book',
+    path: '/book',
+    getParentRoute: () => LangTeacherTeacherSlugRoute,
+  } as any)
+const LangStudentAssignmentsAssignmentIdRoute =
+  LangStudentAssignmentsAssignmentIdRouteImport.update({
+    id: '/$assignmentId',
+    path: '/$assignmentId',
+    getParentRoute: () => LangStudentAssignmentsRouteRoute,
+  } as any)
+const LangDashboardStudentsStudentIdRoute =
+  LangDashboardStudentsStudentIdRouteImport.update({
+    id: '/$studentId',
+    path: '/$studentId',
+    getParentRoute: () => LangDashboardStudentsRouteRoute,
+  } as any)
+const LangDashboardSettingsThemeRoute =
+  LangDashboardSettingsThemeRouteImport.update({
+    id: '/theme',
+    path: '/theme',
+    getParentRoute: () => LangDashboardSettingsRouteRoute,
+  } as any)
+const LangDashboardSettingsPaymentsRoute =
+  LangDashboardSettingsPaymentsRouteImport.update({
+    id: '/payments',
+    path: '/payments',
+    getParentRoute: () => LangDashboardSettingsRouteRoute,
+  } as any)
+const LangDashboardSettingsNotificationsRoute =
+  LangDashboardSettingsNotificationsRouteImport.update({
+    id: '/notifications',
+    path: '/notifications',
+    getParentRoute: () => LangDashboardSettingsRouteRoute,
+  } as any)
+const LangDashboardSettingsIntegrationsRoute =
+  LangDashboardSettingsIntegrationsRouteImport.update({
+    id: '/integrations',
+    path: '/integrations',
+    getParentRoute: () => LangDashboardSettingsRouteRoute,
+  } as any)
+const LangDashboardSettingsGeneralRoute =
+  LangDashboardSettingsGeneralRouteImport.update({
+    id: '/general',
+    path: '/general',
+    getParentRoute: () => LangDashboardSettingsRouteRoute,
+  } as any)
+const LangDashboardSettingsBookingRoute =
+  LangDashboardSettingsBookingRouteImport.update({
+    id: '/booking',
+    path: '/booking',
+    getParentRoute: () => LangDashboardSettingsRouteRoute,
+  } as any)
+const LangDashboardSettingsAutomationRoute =
+  LangDashboardSettingsAutomationRouteImport.update({
+    id: '/automation',
+    path: '/automation',
+    getParentRoute: () => LangDashboardSettingsRouteRoute,
   } as any)
 const LangDashboardCoursesNewRoute = LangDashboardCoursesNewRouteImport.update({
   id: '/courses/new',
   path: '/courses/new',
   getParentRoute: () => LangDashboardRouteRoute,
 } as any)
+const LangDashboardAssignmentsAssignmentIdRoute =
+  LangDashboardAssignmentsAssignmentIdRouteImport.update({
+    id: '/$assignmentId',
+    path: '/$assignmentId',
+    getParentRoute: () => LangDashboardAssignmentsRouteRoute,
+  } as any)
 const LangStudentCoursesCourseIdIndexRoute =
   LangStudentCoursesCourseIdIndexRouteImport.update({
     id: '/courses/$courseId/',
@@ -179,14 +291,30 @@ export interface FileRoutesByFullPath {
   '/$lang/subscribe': typeof LangSubscribeRouteRouteWithChildren
   '/$lang/register': typeof LangRegisterRoute
   '/$lang/': typeof LangIndexRoute
+  '/$lang/dashboard/assignments': typeof LangDashboardAssignmentsRouteRouteWithChildren
+  '/$lang/dashboard/settings': typeof LangDashboardSettingsRouteRouteWithChildren
+  '/$lang/dashboard/students': typeof LangDashboardStudentsRouteRouteWithChildren
+  '/$lang/student/assignments': typeof LangStudentAssignmentsRouteRouteWithChildren
   '/$lang/course/$courseSlug': typeof LangCourseCourseSlugRoute
   '/$lang/subscribe/checkout': typeof LangSubscribeCheckoutRoute
-  '/$lang/teacher/$teacherSlug': typeof LangTeacherTeacherSlugRoute
+  '/$lang/teacher/$teacherSlug': typeof LangTeacherTeacherSlugRouteWithChildren
   '/$lang/dashboard/': typeof LangDashboardIndexRoute
   '/$lang/student/': typeof LangStudentIndexRoute
   '/$lang/subscribe/': typeof LangSubscribeIndexRoute
+  '/$lang/dashboard/assignments/$assignmentId': typeof LangDashboardAssignmentsAssignmentIdRoute
   '/$lang/dashboard/courses/new': typeof LangDashboardCoursesNewRoute
+  '/$lang/dashboard/settings/automation': typeof LangDashboardSettingsAutomationRoute
+  '/$lang/dashboard/settings/booking': typeof LangDashboardSettingsBookingRoute
+  '/$lang/dashboard/settings/general': typeof LangDashboardSettingsGeneralRoute
+  '/$lang/dashboard/settings/integrations': typeof LangDashboardSettingsIntegrationsRoute
+  '/$lang/dashboard/settings/notifications': typeof LangDashboardSettingsNotificationsRoute
+  '/$lang/dashboard/settings/payments': typeof LangDashboardSettingsPaymentsRoute
+  '/$lang/dashboard/settings/theme': typeof LangDashboardSettingsThemeRoute
+  '/$lang/dashboard/students/$studentId': typeof LangDashboardStudentsStudentIdRoute
+  '/$lang/student/assignments/$assignmentId': typeof LangStudentAssignmentsAssignmentIdRoute
+  '/$lang/teacher/$teacherSlug/book': typeof LangTeacherTeacherSlugBookRoute
   '/$lang/dashboard/assignments/': typeof LangDashboardAssignmentsIndexRoute
+  '/$lang/dashboard/booking/': typeof LangDashboardBookingIndexRoute
   '/$lang/dashboard/courses/': typeof LangDashboardCoursesIndexRoute
   '/$lang/dashboard/payments/': typeof LangDashboardPaymentsIndexRoute
   '/$lang/dashboard/settings/': typeof LangDashboardSettingsIndexRoute
@@ -204,12 +332,24 @@ export interface FileRoutesByTo {
   '/$lang': typeof LangIndexRoute
   '/$lang/course/$courseSlug': typeof LangCourseCourseSlugRoute
   '/$lang/subscribe/checkout': typeof LangSubscribeCheckoutRoute
-  '/$lang/teacher/$teacherSlug': typeof LangTeacherTeacherSlugRoute
+  '/$lang/teacher/$teacherSlug': typeof LangTeacherTeacherSlugRouteWithChildren
   '/$lang/dashboard': typeof LangDashboardIndexRoute
   '/$lang/student': typeof LangStudentIndexRoute
   '/$lang/subscribe': typeof LangSubscribeIndexRoute
+  '/$lang/dashboard/assignments/$assignmentId': typeof LangDashboardAssignmentsAssignmentIdRoute
   '/$lang/dashboard/courses/new': typeof LangDashboardCoursesNewRoute
+  '/$lang/dashboard/settings/automation': typeof LangDashboardSettingsAutomationRoute
+  '/$lang/dashboard/settings/booking': typeof LangDashboardSettingsBookingRoute
+  '/$lang/dashboard/settings/general': typeof LangDashboardSettingsGeneralRoute
+  '/$lang/dashboard/settings/integrations': typeof LangDashboardSettingsIntegrationsRoute
+  '/$lang/dashboard/settings/notifications': typeof LangDashboardSettingsNotificationsRoute
+  '/$lang/dashboard/settings/payments': typeof LangDashboardSettingsPaymentsRoute
+  '/$lang/dashboard/settings/theme': typeof LangDashboardSettingsThemeRoute
+  '/$lang/dashboard/students/$studentId': typeof LangDashboardStudentsStudentIdRoute
+  '/$lang/student/assignments/$assignmentId': typeof LangStudentAssignmentsAssignmentIdRoute
+  '/$lang/teacher/$teacherSlug/book': typeof LangTeacherTeacherSlugBookRoute
   '/$lang/dashboard/assignments': typeof LangDashboardAssignmentsIndexRoute
+  '/$lang/dashboard/booking': typeof LangDashboardBookingIndexRoute
   '/$lang/dashboard/courses': typeof LangDashboardCoursesIndexRoute
   '/$lang/dashboard/payments': typeof LangDashboardPaymentsIndexRoute
   '/$lang/dashboard/settings': typeof LangDashboardSettingsIndexRoute
@@ -230,14 +370,30 @@ export interface FileRoutesById {
   '/$lang/subscribe': typeof LangSubscribeRouteRouteWithChildren
   '/$lang/register': typeof LangRegisterRoute
   '/$lang/': typeof LangIndexRoute
+  '/$lang/dashboard/assignments': typeof LangDashboardAssignmentsRouteRouteWithChildren
+  '/$lang/dashboard/settings': typeof LangDashboardSettingsRouteRouteWithChildren
+  '/$lang/dashboard/students': typeof LangDashboardStudentsRouteRouteWithChildren
+  '/$lang/student/assignments': typeof LangStudentAssignmentsRouteRouteWithChildren
   '/$lang/course/$courseSlug': typeof LangCourseCourseSlugRoute
   '/$lang/subscribe/checkout': typeof LangSubscribeCheckoutRoute
-  '/$lang/teacher/$teacherSlug': typeof LangTeacherTeacherSlugRoute
+  '/$lang/teacher/$teacherSlug': typeof LangTeacherTeacherSlugRouteWithChildren
   '/$lang/dashboard/': typeof LangDashboardIndexRoute
   '/$lang/student/': typeof LangStudentIndexRoute
   '/$lang/subscribe/': typeof LangSubscribeIndexRoute
+  '/$lang/dashboard/assignments/$assignmentId': typeof LangDashboardAssignmentsAssignmentIdRoute
   '/$lang/dashboard/courses/new': typeof LangDashboardCoursesNewRoute
+  '/$lang/dashboard/settings/automation': typeof LangDashboardSettingsAutomationRoute
+  '/$lang/dashboard/settings/booking': typeof LangDashboardSettingsBookingRoute
+  '/$lang/dashboard/settings/general': typeof LangDashboardSettingsGeneralRoute
+  '/$lang/dashboard/settings/integrations': typeof LangDashboardSettingsIntegrationsRoute
+  '/$lang/dashboard/settings/notifications': typeof LangDashboardSettingsNotificationsRoute
+  '/$lang/dashboard/settings/payments': typeof LangDashboardSettingsPaymentsRoute
+  '/$lang/dashboard/settings/theme': typeof LangDashboardSettingsThemeRoute
+  '/$lang/dashboard/students/$studentId': typeof LangDashboardStudentsStudentIdRoute
+  '/$lang/student/assignments/$assignmentId': typeof LangStudentAssignmentsAssignmentIdRoute
+  '/$lang/teacher/$teacherSlug/book': typeof LangTeacherTeacherSlugBookRoute
   '/$lang/dashboard/assignments/': typeof LangDashboardAssignmentsIndexRoute
+  '/$lang/dashboard/booking/': typeof LangDashboardBookingIndexRoute
   '/$lang/dashboard/courses/': typeof LangDashboardCoursesIndexRoute
   '/$lang/dashboard/payments/': typeof LangDashboardPaymentsIndexRoute
   '/$lang/dashboard/settings/': typeof LangDashboardSettingsIndexRoute
@@ -259,14 +415,30 @@ export interface FileRouteTypes {
     | '/$lang/subscribe'
     | '/$lang/register'
     | '/$lang/'
+    | '/$lang/dashboard/assignments'
+    | '/$lang/dashboard/settings'
+    | '/$lang/dashboard/students'
+    | '/$lang/student/assignments'
     | '/$lang/course/$courseSlug'
     | '/$lang/subscribe/checkout'
     | '/$lang/teacher/$teacherSlug'
     | '/$lang/dashboard/'
     | '/$lang/student/'
     | '/$lang/subscribe/'
+    | '/$lang/dashboard/assignments/$assignmentId'
     | '/$lang/dashboard/courses/new'
+    | '/$lang/dashboard/settings/automation'
+    | '/$lang/dashboard/settings/booking'
+    | '/$lang/dashboard/settings/general'
+    | '/$lang/dashboard/settings/integrations'
+    | '/$lang/dashboard/settings/notifications'
+    | '/$lang/dashboard/settings/payments'
+    | '/$lang/dashboard/settings/theme'
+    | '/$lang/dashboard/students/$studentId'
+    | '/$lang/student/assignments/$assignmentId'
+    | '/$lang/teacher/$teacherSlug/book'
     | '/$lang/dashboard/assignments/'
+    | '/$lang/dashboard/booking/'
     | '/$lang/dashboard/courses/'
     | '/$lang/dashboard/payments/'
     | '/$lang/dashboard/settings/'
@@ -288,8 +460,20 @@ export interface FileRouteTypes {
     | '/$lang/dashboard'
     | '/$lang/student'
     | '/$lang/subscribe'
+    | '/$lang/dashboard/assignments/$assignmentId'
     | '/$lang/dashboard/courses/new'
+    | '/$lang/dashboard/settings/automation'
+    | '/$lang/dashboard/settings/booking'
+    | '/$lang/dashboard/settings/general'
+    | '/$lang/dashboard/settings/integrations'
+    | '/$lang/dashboard/settings/notifications'
+    | '/$lang/dashboard/settings/payments'
+    | '/$lang/dashboard/settings/theme'
+    | '/$lang/dashboard/students/$studentId'
+    | '/$lang/student/assignments/$assignmentId'
+    | '/$lang/teacher/$teacherSlug/book'
     | '/$lang/dashboard/assignments'
+    | '/$lang/dashboard/booking'
     | '/$lang/dashboard/courses'
     | '/$lang/dashboard/payments'
     | '/$lang/dashboard/settings'
@@ -309,14 +493,30 @@ export interface FileRouteTypes {
     | '/$lang/subscribe'
     | '/$lang/register'
     | '/$lang/'
+    | '/$lang/dashboard/assignments'
+    | '/$lang/dashboard/settings'
+    | '/$lang/dashboard/students'
+    | '/$lang/student/assignments'
     | '/$lang/course/$courseSlug'
     | '/$lang/subscribe/checkout'
     | '/$lang/teacher/$teacherSlug'
     | '/$lang/dashboard/'
     | '/$lang/student/'
     | '/$lang/subscribe/'
+    | '/$lang/dashboard/assignments/$assignmentId'
     | '/$lang/dashboard/courses/new'
+    | '/$lang/dashboard/settings/automation'
+    | '/$lang/dashboard/settings/booking'
+    | '/$lang/dashboard/settings/general'
+    | '/$lang/dashboard/settings/integrations'
+    | '/$lang/dashboard/settings/notifications'
+    | '/$lang/dashboard/settings/payments'
+    | '/$lang/dashboard/settings/theme'
+    | '/$lang/dashboard/students/$studentId'
+    | '/$lang/student/assignments/$assignmentId'
+    | '/$lang/teacher/$teacherSlug/book'
     | '/$lang/dashboard/assignments/'
+    | '/$lang/dashboard/booking/'
     | '/$lang/dashboard/courses/'
     | '/$lang/dashboard/payments/'
     | '/$lang/dashboard/settings/'
@@ -427,6 +627,34 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LangCourseCourseSlugRouteImport
       parentRoute: typeof LangRouteRoute
     }
+    '/$lang/student/assignments': {
+      id: '/$lang/student/assignments'
+      path: '/assignments'
+      fullPath: '/$lang/student/assignments'
+      preLoaderRoute: typeof LangStudentAssignmentsRouteRouteImport
+      parentRoute: typeof LangStudentRouteRoute
+    }
+    '/$lang/dashboard/students': {
+      id: '/$lang/dashboard/students'
+      path: '/students'
+      fullPath: '/$lang/dashboard/students'
+      preLoaderRoute: typeof LangDashboardStudentsRouteRouteImport
+      parentRoute: typeof LangDashboardRouteRoute
+    }
+    '/$lang/dashboard/settings': {
+      id: '/$lang/dashboard/settings'
+      path: '/settings'
+      fullPath: '/$lang/dashboard/settings'
+      preLoaderRoute: typeof LangDashboardSettingsRouteRouteImport
+      parentRoute: typeof LangDashboardRouteRoute
+    }
+    '/$lang/dashboard/assignments': {
+      id: '/$lang/dashboard/assignments'
+      path: '/assignments'
+      fullPath: '/$lang/dashboard/assignments'
+      preLoaderRoute: typeof LangDashboardAssignmentsRouteRouteImport
+      parentRoute: typeof LangDashboardRouteRoute
+    }
     '/$lang/student/courses/': {
       id: '/$lang/student/courses/'
       path: '/courses'
@@ -436,24 +664,24 @@ declare module '@tanstack/react-router' {
     }
     '/$lang/student/assignments/': {
       id: '/$lang/student/assignments/'
-      path: '/assignments'
+      path: '/'
       fullPath: '/$lang/student/assignments/'
       preLoaderRoute: typeof LangStudentAssignmentsIndexRouteImport
-      parentRoute: typeof LangStudentRouteRoute
+      parentRoute: typeof LangStudentAssignmentsRouteRoute
     }
     '/$lang/dashboard/students/': {
       id: '/$lang/dashboard/students/'
-      path: '/students'
+      path: '/'
       fullPath: '/$lang/dashboard/students/'
       preLoaderRoute: typeof LangDashboardStudentsIndexRouteImport
-      parentRoute: typeof LangDashboardRouteRoute
+      parentRoute: typeof LangDashboardStudentsRouteRoute
     }
     '/$lang/dashboard/settings/': {
       id: '/$lang/dashboard/settings/'
-      path: '/settings'
+      path: '/'
       fullPath: '/$lang/dashboard/settings/'
       preLoaderRoute: typeof LangDashboardSettingsIndexRouteImport
-      parentRoute: typeof LangDashboardRouteRoute
+      parentRoute: typeof LangDashboardSettingsRouteRoute
     }
     '/$lang/dashboard/payments/': {
       id: '/$lang/dashboard/payments/'
@@ -469,12 +697,89 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LangDashboardCoursesIndexRouteImport
       parentRoute: typeof LangDashboardRouteRoute
     }
+    '/$lang/dashboard/booking/': {
+      id: '/$lang/dashboard/booking/'
+      path: '/booking'
+      fullPath: '/$lang/dashboard/booking/'
+      preLoaderRoute: typeof LangDashboardBookingIndexRouteImport
+      parentRoute: typeof LangDashboardRouteRoute
+    }
     '/$lang/dashboard/assignments/': {
       id: '/$lang/dashboard/assignments/'
-      path: '/assignments'
+      path: '/'
       fullPath: '/$lang/dashboard/assignments/'
       preLoaderRoute: typeof LangDashboardAssignmentsIndexRouteImport
-      parentRoute: typeof LangDashboardRouteRoute
+      parentRoute: typeof LangDashboardAssignmentsRouteRoute
+    }
+    '/$lang/teacher/$teacherSlug/book': {
+      id: '/$lang/teacher/$teacherSlug/book'
+      path: '/book'
+      fullPath: '/$lang/teacher/$teacherSlug/book'
+      preLoaderRoute: typeof LangTeacherTeacherSlugBookRouteImport
+      parentRoute: typeof LangTeacherTeacherSlugRoute
+    }
+    '/$lang/student/assignments/$assignmentId': {
+      id: '/$lang/student/assignments/$assignmentId'
+      path: '/$assignmentId'
+      fullPath: '/$lang/student/assignments/$assignmentId'
+      preLoaderRoute: typeof LangStudentAssignmentsAssignmentIdRouteImport
+      parentRoute: typeof LangStudentAssignmentsRouteRoute
+    }
+    '/$lang/dashboard/students/$studentId': {
+      id: '/$lang/dashboard/students/$studentId'
+      path: '/$studentId'
+      fullPath: '/$lang/dashboard/students/$studentId'
+      preLoaderRoute: typeof LangDashboardStudentsStudentIdRouteImport
+      parentRoute: typeof LangDashboardStudentsRouteRoute
+    }
+    '/$lang/dashboard/settings/theme': {
+      id: '/$lang/dashboard/settings/theme'
+      path: '/theme'
+      fullPath: '/$lang/dashboard/settings/theme'
+      preLoaderRoute: typeof LangDashboardSettingsThemeRouteImport
+      parentRoute: typeof LangDashboardSettingsRouteRoute
+    }
+    '/$lang/dashboard/settings/payments': {
+      id: '/$lang/dashboard/settings/payments'
+      path: '/payments'
+      fullPath: '/$lang/dashboard/settings/payments'
+      preLoaderRoute: typeof LangDashboardSettingsPaymentsRouteImport
+      parentRoute: typeof LangDashboardSettingsRouteRoute
+    }
+    '/$lang/dashboard/settings/notifications': {
+      id: '/$lang/dashboard/settings/notifications'
+      path: '/notifications'
+      fullPath: '/$lang/dashboard/settings/notifications'
+      preLoaderRoute: typeof LangDashboardSettingsNotificationsRouteImport
+      parentRoute: typeof LangDashboardSettingsRouteRoute
+    }
+    '/$lang/dashboard/settings/integrations': {
+      id: '/$lang/dashboard/settings/integrations'
+      path: '/integrations'
+      fullPath: '/$lang/dashboard/settings/integrations'
+      preLoaderRoute: typeof LangDashboardSettingsIntegrationsRouteImport
+      parentRoute: typeof LangDashboardSettingsRouteRoute
+    }
+    '/$lang/dashboard/settings/general': {
+      id: '/$lang/dashboard/settings/general'
+      path: '/general'
+      fullPath: '/$lang/dashboard/settings/general'
+      preLoaderRoute: typeof LangDashboardSettingsGeneralRouteImport
+      parentRoute: typeof LangDashboardSettingsRouteRoute
+    }
+    '/$lang/dashboard/settings/booking': {
+      id: '/$lang/dashboard/settings/booking'
+      path: '/booking'
+      fullPath: '/$lang/dashboard/settings/booking'
+      preLoaderRoute: typeof LangDashboardSettingsBookingRouteImport
+      parentRoute: typeof LangDashboardSettingsRouteRoute
+    }
+    '/$lang/dashboard/settings/automation': {
+      id: '/$lang/dashboard/settings/automation'
+      path: '/automation'
+      fullPath: '/$lang/dashboard/settings/automation'
+      preLoaderRoute: typeof LangDashboardSettingsAutomationRouteImport
+      parentRoute: typeof LangDashboardSettingsRouteRoute
     }
     '/$lang/dashboard/courses/new': {
       id: '/$lang/dashboard/courses/new'
@@ -482,6 +787,13 @@ declare module '@tanstack/react-router' {
       fullPath: '/$lang/dashboard/courses/new'
       preLoaderRoute: typeof LangDashboardCoursesNewRouteImport
       parentRoute: typeof LangDashboardRouteRoute
+    }
+    '/$lang/dashboard/assignments/$assignmentId': {
+      id: '/$lang/dashboard/assignments/$assignmentId'
+      path: '/$assignmentId'
+      fullPath: '/$lang/dashboard/assignments/$assignmentId'
+      preLoaderRoute: typeof LangDashboardAssignmentsAssignmentIdRouteImport
+      parentRoute: typeof LangDashboardAssignmentsRouteRoute
     }
     '/$lang/student/courses/$courseId/': {
       id: '/$lang/student/courses/$courseId/'
@@ -514,26 +826,92 @@ declare module '@tanstack/react-router' {
   }
 }
 
+interface LangDashboardAssignmentsRouteRouteChildren {
+  LangDashboardAssignmentsAssignmentIdRoute: typeof LangDashboardAssignmentsAssignmentIdRoute
+  LangDashboardAssignmentsIndexRoute: typeof LangDashboardAssignmentsIndexRoute
+}
+
+const LangDashboardAssignmentsRouteRouteChildren: LangDashboardAssignmentsRouteRouteChildren =
+  {
+    LangDashboardAssignmentsAssignmentIdRoute:
+      LangDashboardAssignmentsAssignmentIdRoute,
+    LangDashboardAssignmentsIndexRoute: LangDashboardAssignmentsIndexRoute,
+  }
+
+const LangDashboardAssignmentsRouteRouteWithChildren =
+  LangDashboardAssignmentsRouteRoute._addFileChildren(
+    LangDashboardAssignmentsRouteRouteChildren,
+  )
+
+interface LangDashboardSettingsRouteRouteChildren {
+  LangDashboardSettingsAutomationRoute: typeof LangDashboardSettingsAutomationRoute
+  LangDashboardSettingsBookingRoute: typeof LangDashboardSettingsBookingRoute
+  LangDashboardSettingsGeneralRoute: typeof LangDashboardSettingsGeneralRoute
+  LangDashboardSettingsIntegrationsRoute: typeof LangDashboardSettingsIntegrationsRoute
+  LangDashboardSettingsNotificationsRoute: typeof LangDashboardSettingsNotificationsRoute
+  LangDashboardSettingsPaymentsRoute: typeof LangDashboardSettingsPaymentsRoute
+  LangDashboardSettingsThemeRoute: typeof LangDashboardSettingsThemeRoute
+  LangDashboardSettingsIndexRoute: typeof LangDashboardSettingsIndexRoute
+}
+
+const LangDashboardSettingsRouteRouteChildren: LangDashboardSettingsRouteRouteChildren =
+  {
+    LangDashboardSettingsAutomationRoute: LangDashboardSettingsAutomationRoute,
+    LangDashboardSettingsBookingRoute: LangDashboardSettingsBookingRoute,
+    LangDashboardSettingsGeneralRoute: LangDashboardSettingsGeneralRoute,
+    LangDashboardSettingsIntegrationsRoute:
+      LangDashboardSettingsIntegrationsRoute,
+    LangDashboardSettingsNotificationsRoute:
+      LangDashboardSettingsNotificationsRoute,
+    LangDashboardSettingsPaymentsRoute: LangDashboardSettingsPaymentsRoute,
+    LangDashboardSettingsThemeRoute: LangDashboardSettingsThemeRoute,
+    LangDashboardSettingsIndexRoute: LangDashboardSettingsIndexRoute,
+  }
+
+const LangDashboardSettingsRouteRouteWithChildren =
+  LangDashboardSettingsRouteRoute._addFileChildren(
+    LangDashboardSettingsRouteRouteChildren,
+  )
+
+interface LangDashboardStudentsRouteRouteChildren {
+  LangDashboardStudentsStudentIdRoute: typeof LangDashboardStudentsStudentIdRoute
+  LangDashboardStudentsIndexRoute: typeof LangDashboardStudentsIndexRoute
+}
+
+const LangDashboardStudentsRouteRouteChildren: LangDashboardStudentsRouteRouteChildren =
+  {
+    LangDashboardStudentsStudentIdRoute: LangDashboardStudentsStudentIdRoute,
+    LangDashboardStudentsIndexRoute: LangDashboardStudentsIndexRoute,
+  }
+
+const LangDashboardStudentsRouteRouteWithChildren =
+  LangDashboardStudentsRouteRoute._addFileChildren(
+    LangDashboardStudentsRouteRouteChildren,
+  )
+
 interface LangDashboardRouteRouteChildren {
+  LangDashboardAssignmentsRouteRoute: typeof LangDashboardAssignmentsRouteRouteWithChildren
+  LangDashboardSettingsRouteRoute: typeof LangDashboardSettingsRouteRouteWithChildren
+  LangDashboardStudentsRouteRoute: typeof LangDashboardStudentsRouteRouteWithChildren
   LangDashboardIndexRoute: typeof LangDashboardIndexRoute
   LangDashboardCoursesNewRoute: typeof LangDashboardCoursesNewRoute
-  LangDashboardAssignmentsIndexRoute: typeof LangDashboardAssignmentsIndexRoute
+  LangDashboardBookingIndexRoute: typeof LangDashboardBookingIndexRoute
   LangDashboardCoursesIndexRoute: typeof LangDashboardCoursesIndexRoute
   LangDashboardPaymentsIndexRoute: typeof LangDashboardPaymentsIndexRoute
-  LangDashboardSettingsIndexRoute: typeof LangDashboardSettingsIndexRoute
-  LangDashboardStudentsIndexRoute: typeof LangDashboardStudentsIndexRoute
   LangDashboardCoursesCourseIdLessonsNewRoute: typeof LangDashboardCoursesCourseIdLessonsNewRoute
   LangDashboardCoursesCourseIdLessonsIndexRoute: typeof LangDashboardCoursesCourseIdLessonsIndexRoute
 }
 
 const LangDashboardRouteRouteChildren: LangDashboardRouteRouteChildren = {
+  LangDashboardAssignmentsRouteRoute:
+    LangDashboardAssignmentsRouteRouteWithChildren,
+  LangDashboardSettingsRouteRoute: LangDashboardSettingsRouteRouteWithChildren,
+  LangDashboardStudentsRouteRoute: LangDashboardStudentsRouteRouteWithChildren,
   LangDashboardIndexRoute: LangDashboardIndexRoute,
   LangDashboardCoursesNewRoute: LangDashboardCoursesNewRoute,
-  LangDashboardAssignmentsIndexRoute: LangDashboardAssignmentsIndexRoute,
+  LangDashboardBookingIndexRoute: LangDashboardBookingIndexRoute,
   LangDashboardCoursesIndexRoute: LangDashboardCoursesIndexRoute,
   LangDashboardPaymentsIndexRoute: LangDashboardPaymentsIndexRoute,
-  LangDashboardSettingsIndexRoute: LangDashboardSettingsIndexRoute,
-  LangDashboardStudentsIndexRoute: LangDashboardStudentsIndexRoute,
   LangDashboardCoursesCourseIdLessonsNewRoute:
     LangDashboardCoursesCourseIdLessonsNewRoute,
   LangDashboardCoursesCourseIdLessonsIndexRoute:
@@ -543,17 +921,35 @@ const LangDashboardRouteRouteChildren: LangDashboardRouteRouteChildren = {
 const LangDashboardRouteRouteWithChildren =
   LangDashboardRouteRoute._addFileChildren(LangDashboardRouteRouteChildren)
 
-interface LangStudentRouteRouteChildren {
-  LangStudentIndexRoute: typeof LangStudentIndexRoute
+interface LangStudentAssignmentsRouteRouteChildren {
+  LangStudentAssignmentsAssignmentIdRoute: typeof LangStudentAssignmentsAssignmentIdRoute
   LangStudentAssignmentsIndexRoute: typeof LangStudentAssignmentsIndexRoute
+}
+
+const LangStudentAssignmentsRouteRouteChildren: LangStudentAssignmentsRouteRouteChildren =
+  {
+    LangStudentAssignmentsAssignmentIdRoute:
+      LangStudentAssignmentsAssignmentIdRoute,
+    LangStudentAssignmentsIndexRoute: LangStudentAssignmentsIndexRoute,
+  }
+
+const LangStudentAssignmentsRouteRouteWithChildren =
+  LangStudentAssignmentsRouteRoute._addFileChildren(
+    LangStudentAssignmentsRouteRouteChildren,
+  )
+
+interface LangStudentRouteRouteChildren {
+  LangStudentAssignmentsRouteRoute: typeof LangStudentAssignmentsRouteRouteWithChildren
+  LangStudentIndexRoute: typeof LangStudentIndexRoute
   LangStudentCoursesIndexRoute: typeof LangStudentCoursesIndexRoute
   LangStudentCoursesCourseIdIndexRoute: typeof LangStudentCoursesCourseIdIndexRoute
   LangStudentCoursesCourseIdLessonsLessonIdRoute: typeof LangStudentCoursesCourseIdLessonsLessonIdRoute
 }
 
 const LangStudentRouteRouteChildren: LangStudentRouteRouteChildren = {
+  LangStudentAssignmentsRouteRoute:
+    LangStudentAssignmentsRouteRouteWithChildren,
   LangStudentIndexRoute: LangStudentIndexRoute,
-  LangStudentAssignmentsIndexRoute: LangStudentAssignmentsIndexRoute,
   LangStudentCoursesIndexRoute: LangStudentCoursesIndexRoute,
   LangStudentCoursesCourseIdIndexRoute: LangStudentCoursesCourseIdIndexRoute,
   LangStudentCoursesCourseIdLessonsLessonIdRoute:
@@ -576,6 +972,20 @@ const LangSubscribeRouteRouteChildren: LangSubscribeRouteRouteChildren = {
 const LangSubscribeRouteRouteWithChildren =
   LangSubscribeRouteRoute._addFileChildren(LangSubscribeRouteRouteChildren)
 
+interface LangTeacherTeacherSlugRouteChildren {
+  LangTeacherTeacherSlugBookRoute: typeof LangTeacherTeacherSlugBookRoute
+}
+
+const LangTeacherTeacherSlugRouteChildren: LangTeacherTeacherSlugRouteChildren =
+  {
+    LangTeacherTeacherSlugBookRoute: LangTeacherTeacherSlugBookRoute,
+  }
+
+const LangTeacherTeacherSlugRouteWithChildren =
+  LangTeacherTeacherSlugRoute._addFileChildren(
+    LangTeacherTeacherSlugRouteChildren,
+  )
+
 interface LangRouteRouteChildren {
   LangDashboardRouteRoute: typeof LangDashboardRouteRouteWithChildren
   LangStudentRouteRoute: typeof LangStudentRouteRouteWithChildren
@@ -583,7 +993,7 @@ interface LangRouteRouteChildren {
   LangRegisterRoute: typeof LangRegisterRoute
   LangIndexRoute: typeof LangIndexRoute
   LangCourseCourseSlugRoute: typeof LangCourseCourseSlugRoute
-  LangTeacherTeacherSlugRoute: typeof LangTeacherTeacherSlugRoute
+  LangTeacherTeacherSlugRoute: typeof LangTeacherTeacherSlugRouteWithChildren
 }
 
 const LangRouteRouteChildren: LangRouteRouteChildren = {
@@ -593,7 +1003,7 @@ const LangRouteRouteChildren: LangRouteRouteChildren = {
   LangRegisterRoute: LangRegisterRoute,
   LangIndexRoute: LangIndexRoute,
   LangCourseCourseSlugRoute: LangCourseCourseSlugRoute,
-  LangTeacherTeacherSlugRoute: LangTeacherTeacherSlugRoute,
+  LangTeacherTeacherSlugRoute: LangTeacherTeacherSlugRouteWithChildren,
 }
 
 const LangRouteRouteWithChildren = LangRouteRoute._addFileChildren(

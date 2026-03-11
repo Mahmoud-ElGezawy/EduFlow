@@ -1,4 +1,4 @@
-import { Box, Container, Button } from '@mui/material'
+import { Box, Container, Button, Grid } from '@mui/material'
 import { useParams } from '@tanstack/react-router'
 import { I18nLink } from '@/i18n/navigation'
 import { useTranslation } from 'react-i18next'
@@ -7,6 +7,7 @@ import { TeacherHero } from '../components/teacher-hero'
 import { TeacherAbout } from '../components/teacher-about'
 import { TeacherCourses } from '../components/teacher-courses'
 import { TeacherReviews } from '../components/teacher-reviews'
+import { BookingWidget } from '../components/booking-widget'
 import { mockTeacher, mockTeacherSara, mockTeacherCourses, mockTeacherCoursesSara } from '@/api/mock-data'
 
 const MOCK_TEACHERS: Record<string, typeof mockTeacher> = {
@@ -38,6 +39,11 @@ export function TeacherPage() {
   const teacherData = teacher ?? fallbackTeacher
   const coursesData = courses ?? fallbackCourses
 
+  const mockReviews = [
+    { id: '1', author: 'Omar K.', rating: 5, comment: 'Excellent teacher! Clear explanations and patient.', date: '2025-01-10' },
+    { id: '2', author: 'Nora S.', rating: 5, comment: 'Highly recommend. My grades improved significantly.', date: '2025-01-05' },
+  ]
+
   return (
     <Container maxWidth="lg" sx={{ px: { xs: 2, sm: 3 }, py: 4 }}>
       <TeacherHero
@@ -47,22 +53,29 @@ export function TeacherPage() {
         courseCount={teacherData.courseCount}
         studentCount={teacherData.studentCount}
       />
-      <TeacherAbout about={teacherData.bio} />
-      {coursesData.length > 0 && (
-        <TeacherCourses courses={coursesData} teacherSlug={slug} />
-      )}
-      <TeacherReviews reviews={[]} />
-      <Box sx={{ py: 4 }}>
-        <Button
-          variant="contained"
-          size="large"
-          component={I18nLink}
-          to="/subscribe"
-          sx={{ borderRadius: 2, px: 4, py: 1.5 }}
-        >
-          {t('joinAcademy', { ns: 'teacher' })}
-        </Button>
-      </Box>
+      <Grid container spacing={3}>
+        <Grid item xs={12} md={8}>
+          <TeacherAbout about={teacherData.bio} />
+          {coursesData.length > 0 && (
+            <TeacherCourses courses={coursesData} teacherSlug={slug} />
+          )}
+          <TeacherReviews reviews={mockReviews} />
+          <Box sx={{ py: 4 }}>
+            <Button
+              variant="contained"
+              size="large"
+              component={I18nLink}
+              to="/subscribe"
+              sx={{ borderRadius: 2, px: 4, py: 1.5 }}
+            >
+              {t('joinAcademy', { ns: 'teacher' })}
+            </Button>
+          </Box>
+        </Grid>
+        <Grid item xs={12} md={4}>
+          <BookingWidget teacherSlug={slug} />
+        </Grid>
+      </Grid>
     </Container>
   )
 }
